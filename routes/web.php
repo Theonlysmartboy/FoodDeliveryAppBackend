@@ -15,6 +15,10 @@
     return view('welcome');
 });*/
 Route::match(['get', 'post'], '/', 'AdminController@login');
+Route::get('/admin/dashboard', 'AdminController@dashboard');
+
+//Vendor routes
+Route::get('/vendor/dashboard', 'VendorController@dashboard');
 
 Auth::routes();
 

@@ -33,12 +33,10 @@ class AdminController extends Controller {
 
     public function dashboard() {
         if (Session::has('adminSession')) {
-           
-            return view('admin.dashboard');
-        } else if (Session::has('vendorSession')) {
-            
+
+            return view('admin.admin_dashboard');
         } else {
-            return redirect('/admin')->with('flash_message_error', 'Access denied! Please Login first');
+            return redirect('/')->with('flash_message_error', 'Access denied! Please Login first');
         }
     }
 
@@ -46,7 +44,7 @@ class AdminController extends Controller {
         if (Session::has('adminSession')) {
             return view('admin.settings');
         } else {
-            return redirect('/admin')->with('flash_message_error', 'Access denied! Please Login first');
+            return redirect('/')->with('flash_message_error', 'Access denied! Please Login first');
         }
     }
 
@@ -63,7 +61,7 @@ class AdminController extends Controller {
                 die;
             }
         } else {
-            return redirect('/admin')->with('flash_message_error', 'Access denied! Please Login first');
+            return redirect('/')->with('flash_message_error', 'Access denied! Please Login first');
         }
     }
 
@@ -78,10 +76,10 @@ class AdminController extends Controller {
                 $password = bcrypt($data['new_pwd']);
                 User::where('email', $email)->update(['password' => $password]);
                 Session::flush();
-                return redirect('/admin')->with('flash_message_success', 'Password Updated Successfully');
+                return redirect('/')->with('flash_message_success', 'Password Updated Successfully');
             }
         } else {
-            return redirect('/admin')->with('flash_message_error', 'Access denied! Please Login first');
+            return redirect('/')->with('flash_message_error', 'Access denied! Please Login first');
         }
     }
 
@@ -96,7 +94,7 @@ class AdminController extends Controller {
                 return view('admin.profile');
             }
         } else {
-            return redirect('/admin')->with('flash_message_error', 'Access denied! Please Login first');
+            return redirect('/')->with('flash_message_error', 'Access denied! Please Login first');
         }
     }
 
