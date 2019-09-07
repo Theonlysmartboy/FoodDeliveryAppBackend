@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>FoodFuzz | Backend Login</title>
@@ -25,7 +26,19 @@
                     <div class="container-fluid">
                         <div class="row mb-2">
                             <div class="col-sm-6">
-                                <h1>General Form</h1>
+                                <h1>Welcome BACK</h1>
+                                @if(Session::has('flash_message_error'))
+                                <div class="alert alert-danger alert-block" id="autoClose" >
+                                    <button type="button" class="close" data-dismiss="alert">×</button>	
+                                    <em class="text-warning">{!!session('flash_message_error')!!}</em>
+                                </div>
+                                @endif
+                                @if(Session::has('flash_message_success'))
+                                <div class="alert alert-success alert-block" id="autoClose" >
+                                    <button type="button" class="close" data-dismiss="alert">×</button>	
+                                    <em class="text-primary">{!!session('flash_message_success')!!}</em>
+                                </div>
+                                @endif
                             </div>
                             <div class="col-sm-6">
                                 <ol class="breadcrumb float-sm-right">
@@ -33,7 +46,7 @@
                                     <li class="breadcrumb-item active">Login Form</li>
                                 </ol>
                             </div>
-                        </div>
+                        </div>                     
                     </div><!-- /.container-fluid -->
                 </section>
 
@@ -50,18 +63,18 @@
                                     </div>
                                     <!-- /.card-header -->
                                     <!-- form start -->
-                                    <form class="form-horizontal">
+                                    <form class="form-horizontal"method="post" action="{{url('#')}}"> {{ csrf_field() }}
                                         <div class="card-body">
                                             <div class="form-group row">
                                                 <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
                                                 <div class="col-sm-10">
-                                                    <input type="email" class="form-control" id="inputEmail3" placeholder="Email" required>
+                                                    <input type="email" name="email" class="form-control" id="inputEmail3" placeholder="Email" required>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
                                                 <div class="col-sm-10">
-                                                    <input type="password" class="form-control" id="inputPassword3" placeholder="Password" required>
+                                                    <input type="password" name="password" class="form-control" id="inputPassword3" placeholder="Password" required>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
@@ -77,9 +90,9 @@
                                         <div class="card-footer row">
                                             <div class="col-sm-5">
                                             </div>
-                                             <div class="col-sm-7">
-                                            <input type="submit" class="btn btn-success" value="Sign in">
-                                             </div>
+                                            <div class="col-sm-7">
+                                                <input type="submit" class="btn btn-success" value="Sign in">
+                                            </div>
                                         </div>
                                         <!-- /.card-footer -->
                                     </form>
@@ -111,12 +124,13 @@
         <!-- ./wrapper -->
 
         <!-- jQuery -->
-        <script src="../../plugins/jquery/jquery.min.js"></script>
+        <script src="{{asset('plugins/jquery/jquery.min.js')}}"></script>
         <!-- Bootstrap 4 -->
-        <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="{{asset('plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
         <!-- AdminLTE App -->
-        <script src="../../dist/js/adminlte.min.js"></script>
+        <script src="{{asset('dist/js/adminlte.min.js')}}"></script>
         <!-- AdminLTE for demo purposes -->
-        <script src="../../dist/js/demo.js"></script>
+        <script src="{{asset('dist/js/demo.js')}}"></script>
+        <script src="{{asset('js/form_validation.js')}}"></script>
     </body>
 </html>
