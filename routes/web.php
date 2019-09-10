@@ -16,6 +16,7 @@
 });*/
 Route::match(['get', 'post'], '/', 'AdminController@login');
 Route::get('/admin/dashboard', 'AdminController@dashboard');
+Route::get('/admin/vendor', 'AdminController@viewVendor');
 
 //Vendor routes
 Route::get('/vendor/dashboard', 'VendorController@dashboard');

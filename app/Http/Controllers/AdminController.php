@@ -97,5 +97,10 @@ class AdminController extends Controller {
             return redirect('/')->with('flash_message_error', 'Access denied! Please Login first');
         }
     }
+    public function viewVendors(){
+        if(Session::has('adminSession')){
+            return view('/admin/vendor/index');
+        }
+    }
 
 }
