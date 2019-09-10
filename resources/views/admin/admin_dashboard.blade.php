@@ -8,12 +8,25 @@
             <div class="row mb-2">
                 <div class="col-sm-6">
                     <h1 class="m-0 text-dark">Dashboard</h1>
+                    @if(Session::has('flash_message_error'))
+                    <div class="alert alert-danger alert-block" id="autoClose" >
+                        <button type="button" class="close" data-dismiss="alert">×</button>	
+                        <em class="text-warning">{!!session('flash_message_error')!!}</em>
+                    </div>
+                    @endif
+                    @if(Session::has('flash_message_success'))
+                    <div class="alert alert-success alert-block" id="autoClose" >
+                        <button type="button" class="close" data-dismiss="alert">×</button>	
+                        <em class="text-primary">{!!session('flash_message_success')!!}</em>
+                    </div>
+                    @endif
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Dashboard v1</li>
+                        <li class="breadcrumb-item active">Dashboard</li>
                     </ol>
+
                 </div><!-- /.col -->
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
@@ -121,7 +134,7 @@
                         </div><!-- /.card-body -->
                     </div>
                     <!-- /.card -->
-                                      <!-- /.card -->
+                    <!-- /.card -->
                 </section>
                 <!-- /.Left col -->
                 <!-- right col (We are only adding the ID to make the widgets sortable)-->
@@ -151,23 +164,23 @@
                             </div>
                             <!-- /.card-tools -->
                         </div>
-                      
+
                         <!-- /.card-body-->
                         <div class="card-footer bg-transparent">
                             <div class="row">
                                 <div class="col-4 text-center">
                                     <div id="sparkline-1"></div>
-                                   
+
                                 </div>
                                 <!-- ./col -->
                                 <div class="col-4 text-center">
                                     <div id="sparkline-2"></div>
-                                   
+
                                 </div>
                                 <!-- ./col -->
                                 <div class="col-4 text-center">
                                     <div id="sparkline-3"></div>
-                                    
+
                                 </div>
                                 <!-- ./col -->
                             </div>
@@ -176,7 +189,7 @@
                     </div>
                     <!-- /.card -->
 
-                    
+
 
                     <!-- Calendar -->
                     <div class="card bg-gradient-success">
