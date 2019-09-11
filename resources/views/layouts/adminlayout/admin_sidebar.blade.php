@@ -15,15 +15,15 @@
                 <img src="{{asset('dist/img/avatar.png')}}" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Alexander Pierce</a>
+                <a href="#" class="d-block">{{Auth::user()->name}}</a>
             </div>
         </div>
 
         <!-- Sidebar Menu -->
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                 <li class="nav-item">
-                    <a href="pages/widgets.html" class="nav-link active">
+                <li class="nav-item">
+                    <a href="{{url('admin/dashboard')}}" class="nav-link active">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
@@ -47,15 +47,9 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="./index2.html" class="nav-link">
+                            <a href="{{url('/admin/vendor')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Restaurants</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="./index3.html" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Vendors</p>
                             </a>
                         </li>
                     </ul>

@@ -36,25 +36,25 @@
                             <div class="col-sm-6">
                                 <!-- text input -->
                                 <div class="form-group">
-                                    <label>Text</label>
+                                    <label>Restaurant Name</label>
                                     <input type="text" class="form-control" placeholder="Enter ...">
                                 </div>
                             </div>
                         </div>
-                          <div class="row">
+                        <div class="row">
                             <div class="col-sm-6">
                                 <!-- text input -->
                                 <div class="form-group">
-                                    <label>Text</label>
+                                    <label>Address</label>
                                     <input type="text" class="form-control" placeholder="Enter ...">
                                 </div>
                             </div>
                         </div>
-                          <div class="row">
+                        <div class="row">
                             <div class="col-sm-6">
                                 <!-- text input -->
                                 <div class="form-group">
-                                    <label>Text</label>
+                                    <label>Telephone</label>
                                     <input type="text" class="form-control" placeholder="Enter ...">
                                 </div>
                             </div>
@@ -63,10 +63,21 @@
                             <div class="col-sm-6">
                                 <!-- select -->
                                 <div class="form-group">
-                                    <label>Select</label>
+                                    <label>Owner</label>
                                     <select class="form-control">
 
                                     </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="customFile">Logo</label>
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="customFile">
+                                        <label class="custom-file-label" for="customFile">Choose file</label>
+                                    </div>
                                 </div>
                             </div>
                         </div>
