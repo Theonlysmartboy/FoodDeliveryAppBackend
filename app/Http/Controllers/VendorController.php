@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Session;
+use Image;
 use DB;
 use App\User;
 use App\Restaurant;
@@ -35,14 +36,24 @@ class VendorController extends Controller {
         if (Session::has('adminSession')) {
             if ($request->isMethod('post')) {
                 $data = $request->all();
+                //echo"<pre>"; print_r($data); die;
                 $restaurant = new Restaurant;
                 $restaurant->r_name = $data['r_name'];
                 $restaurant->adress = $data['r_address'];
                 $restaurant->telephone = $data['r_tel'];
                 //check if a logo has been selected
                 if (!empty($data['r_logo'])) {
-                    
-                    $restaurant->logo = $data['r_logo'];
+                    if ($request->hasFile('r_logo')) {
+                        $image_temp = $request->file('r_logo');
+                        //echo $image_temp; die;
+                        if ($image_temp->isValid()) {
+                            $extension = $image_temp->getClientOriginalExtension();
+                            $filename = rand(000, 9999999999) . '.' . $extension;
+                            $filepath = 'uploads/vendor/' . $filename;
+                            Image::make($image_temp)->resize(100, 100)->save($filepath);
+                            $restaurant->logo = $filename;
+                        }
+                    }
                 }
                 $restaurant->owner_id = $data['r_owner'];
                 $restaurant->save();
