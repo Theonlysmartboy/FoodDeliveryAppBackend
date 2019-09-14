@@ -62,11 +62,11 @@
                                     <td class="text-center">{{ $vendor->telephone }}</td>
                                     <td class="text-center">{{ $vendor->owner }}</td>
                                     <td class="text-center"><img src="{{asset('uploads/vendor/'.$vendor->logo)}}"></td>
-                                    <td><button data-toggle="modal" data-target="#vendorModal{{ $vendor->id }}" class="btn btn-success btn-mini">View <i class="icon icon-eye-open"></i></button> | 
-                                        <a href="{{url('admin/editVendor/'.$vendor->id)}}" class="btn btn-warning btn-mini">Edit <i class="icon icon-edit"></i></a> | 
-                                        <a rel="{{$vendor->id}}" rel1="delete_booking" href="javascript:" class="btn btn-danger btn-mini deleteBooking">Delete <i class="icon icon-trash"></i></a></td>
+                                    <td><button data-toggle="modal" data-target="#vendorModal{{ $vendor->id }}" class="btn btn-success btn-sm">View <i class="icon icon-eye-open"></i></button> | 
+                                        <a href="{{url('admin/editVendor/'.$vendor->id)}}" class="btn btn-warning btn-sm">Edit <i class="icon icon-edit"></i></a> | 
+                                        <a rel="{{$vendor->id}}" rel1="delete_vendor" href="javascript:" class="btn btn-danger btn-sm deleteVendor">Delete <i class="icon icon-trash"></i></a></td>
                                 </tr>
-                            <div class="modal fade" id="#vendorModal{{ $vendor->id }}">
+                            <div class="modal fade" id="vendorModal{{ $vendor->id }}">
                                 <div class="modal-dialog">
                                     <div class="modal-content bg-primary">
                                         <div class="modal-header">
@@ -75,8 +75,8 @@
                                                 <span aria-hidden="true">&times;</span></button>
                                         </div>
                                         <div class="modal-body">
-                                            <p class="text-center">Address: >{{ $vendor->adress }}</p>
-                                            <p class="text-center">TELEPHONE: >{{ $vendor->telephone }}</p>
+                                            <p class="text-center">Address: {{ $vendor->adress }}</p>
+                                            <p class="text-center">TELEPHONE: {{ $vendor->telephone }}</p>
                                             <p class="text-center bg-primary">Owner/ Representative: {{$vendor->owner}}</p>
                                             <p class="text-center">OWNER EMAIL: {{ $vendor->email}}</p>
                                             <p class="text-center">DATE CREATED: {{$vendor->created_at}}</p>
