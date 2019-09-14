@@ -63,8 +63,8 @@
                                     <td class="text-center">{{ $vendor->owner }}</td>
                                     <td class="text-center"><img src="{{asset('uploads/vendor/'.$vendor->logo)}}"></td>
                                     <td><button data-toggle="modal" data-target="#vendorModal{{ $vendor->id }}" class="btn btn-success btn-sm">View <i class="icon icon-eye-open"></i></button> | 
-                                        <a href="{{url('admin/editVendor/'.$vendor->id)}}" class="btn btn-warning btn-sm">Edit <i class="icon icon-edit"></i></a> | 
-                                        <a rel="{{$vendor->id}}" rel1="delete_vendor" href="javascript:" class="btn btn-danger btn-sm deleteVendor">Delete <i class="icon icon-trash"></i></a></td>
+                                        <a href="{{url('admin/vendor/edit/'.$vendor->id)}}" class="btn btn-warning btn-sm">Edit <i class="icon icon-edit"></i></a> | 
+                                        <a rel="{{$vendor->id}}" rel1="delete" href="javascript:" class="btn btn-danger btn-sm deleteVendor">Delete <i class="icon icon-trash"></i></a></td>
                                 </tr>
                             <div class="modal fade" id="vendorModal{{ $vendor->id }}">
                                 <div class="modal-dialog">

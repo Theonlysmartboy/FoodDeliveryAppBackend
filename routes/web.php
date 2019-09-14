@@ -16,12 +16,14 @@
 });*/
 Route::match(['get', 'post'], '/', 'AdminController@login');
 Route::get('/admin/dashboard', 'AdminController@dashboard');
-Route::get('/admin/vendor', 'VendorController@index');
-Route::match(['get', 'post'],'/admin/vendor/create', 'VendorController@create');
 
 //Vendor routes
 Route::get('/vendor/dashboard', 'VendorController@dashboard');
+Route::get('/admin/vendor', 'VendorController@index');
+Route::match(['get', 'post'],'/admin/vendor/create', 'VendorController@create');
 Route::get('/vendor/product', 'ProductController@index');
+Route::match(['get', 'post'], '/admin/vendor/edit/{id}', 'VendorController@update');
+Route::match(['get', 'post'], '/admin/vendor/delete/{id}', 'VendorController@delete');
 
 Auth::routes();
 

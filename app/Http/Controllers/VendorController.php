@@ -48,7 +48,7 @@ class VendorController extends Controller {
                         //echo $image_temp; die;
                         if ($image_temp->isValid()) {
                             $extension = $image_temp->getClientOriginalExtension();
-                            $filename = rand(000, 9999999999) . '.' . $extension;
+                            $filename = mt_rand(000, 9999999999) . '.' . $extension;
                             $filepath = 'uploads/vendor/' . $filename;
                             Image::make($image_temp)->resize(100, 100)->save($filepath);
                             $restaurant->logo = $filename;
