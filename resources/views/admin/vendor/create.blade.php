@@ -43,7 +43,7 @@
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
-                    <form role="form" method="post" action="{{url('/admin/vendor/create')}}">{{ csrf_field() }}
+                    <form role="form" enctype="multipart/form-data" method="post" action="{{url('/admin/vendor/create')}}">{{ csrf_field() }}
                         <div class="row">
                             <div class="col-sm-6">
                                 <!-- text input -->
@@ -87,7 +87,7 @@
                                 <div class="form-group">
                                     <label for="customFile">Logo</label>
                                     <div class="custom-file">
-                                        <input type="file" name="r_logo" class="custom-file-input" id="customFile">
+                                        <input type="file" name="r_logo" class="custom-file-input" id="r_logo">
                                         <label class="custom-file-label" for="customFile">Choose file</label>
                                     </div>
                                 </div>

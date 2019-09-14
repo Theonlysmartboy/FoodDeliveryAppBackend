@@ -61,7 +61,7 @@
                                     <td class="text-center">{{ $vendor->adress }}</td>
                                     <td class="text-center">{{ $vendor->telephone }}</td>
                                     <td class="text-center">{{ $vendor->owner }}</td>
-                                    <td class="text-center"><img src="{{asset('uploads/vendors/'.$vendor->logo)}}"></td>
+                                    <td class="text-center"><img src="{{asset('uploads/vendor/'.$vendor->logo)}}"></td>
                                     <td><button data-toggle="modal" data-target="#vendorModal{{ $vendor->id }}" class="btn btn-success btn-mini">View <i class="icon icon-eye-open"></i></button> | 
                                         <a href="{{url('admin/editVendor/'.$vendor->id)}}" class="btn btn-warning btn-mini">Edit <i class="icon icon-edit"></i></a> | 
                                         <a rel="{{$vendor->id}}" rel1="delete_booking" href="javascript:" class="btn btn-danger btn-mini deleteBooking">Delete <i class="icon icon-trash"></i></a></td>
