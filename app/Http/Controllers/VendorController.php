@@ -80,9 +80,20 @@ class VendorController extends Controller {
         }
     }
 
-    public function delete(Request $request) {
+    public function delete($id = null) {
         if (Session::has('adminSession')) {
-            
+            if (!empty($id)) {
+                //get the particular restaurant form the db
+                $restaurant = Restaurant::where(['id' => $id])->first();
+                //Get logo path
+                $logo_path = 'uploads/vendor/';
+                //Delete the image if it exists
+                if (file_exists($logo_path . $restaurant->logo)) {
+                    unlink($logo_path . $restaurant->logo);
+                }
+                Restaurant::where(['id' => $id])->delete();
+                return redirect()->back()->with('flash_message_success', 'Vendor Deleted Successfully');
+            }
         } else {
             return redirect::back()->with('flash_message_error', 'Access denied!!');
         }
