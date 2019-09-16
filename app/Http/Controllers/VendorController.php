@@ -68,15 +68,66 @@ class VendorController extends Controller {
 //Services dropdown end
             return view('admin.vendor.create')->with(compact('owners_dropdown'));
         } else {
-            return redirect::back()->with('flash_message_error', 'Access denied!!');
+            return redirect()->back()->with('flash_message_error', 'Access denied!!');
         }
     }
 
-    public function update(Request $request) {
+    public function update(Request $request, $id = null) {
         if (Session::has('adminSession')) {
-            
+
+            if ($request->isMethod('post')) {
+                $data = $request->all();
+                //upload image
+                if ($request->hasFile('product_image')) {
+                    $image_tmp = Input::file('product_image');
+                    if ($image_tmp->isValid()) {
+                        $extension = $image_tmp->getClientOriginalExtension();
+                        $filename = rand(1, 999999) . '.' . $extension;
+                        $logo_path = 'images/frontend_images/products/small/' . $filename;
+                        //Resize images
+                        Image::make($image_tmp)->resize(100, 100)->save($logo_path);
+                        $restaurant = Restaurant::where(['id' => $id])->first();
+                        //Get product image paths
+                        $logo_path = 'images/frontend_images/products/small/';
+                        //Delete the logo if exists
+                        if (file_exists($logo_path . $restaurant->logo)) {
+                            unlink($logo_path . $restaurant->logo);
+                        }
+                    }
+                } else {
+                    $filename = $data['current_image'];
+                }
+                if (!empty($data['product_desc'])) {
+                    $description = $data['product_desc'];
+                } else {
+                    $description = '_';
+                }
+                Restaurant::where(['id' => $id])->update(['category_id' => $data['category_id'], 'product_name' => $data['product_name'],
+                    'product_code' => $data['product_code'], 'product_color' => $data['product_color'], 'description' => $description,
+                    'price' => $data['product_cost'], 'image' => $filename]);
+                return redirect('/admin/view_products')->with('flash_message_success', 'Product updated Successfully');
+            }
+            $restaurantDetails = Restaurant::where(['id' => $id])->first();
+            //Categfories drop down start
+            $owner = User::where(['owner_id' => 0])->get();
+            $categories_dropdown = "<option selected disabled>Select<option>";
+            foreach ($categories as $cat) {
+                $categories_dropdown .= "<option value='" . $cat->id . "'>" . $cat->name . "<option>";
+                $sub_categories = Category::where(['parent_id' => $cat->id])->get();
+                foreach ($sub_categories as $sub_cat) {
+                    if ($sub_cat->id == $productDetails->category_id) {
+                        $selected = "selected";
+                    } else {
+                        $selected = "";
+                    }
+                    $categories_dropdown .= "<option value='" . $sub_cat->id . "'" . $selected . ">&nbsp;--&nbsp;" . $sub_cat->name . "<option>";
+                }
+            }
+            //Categories dropdown end
+
+            return view('admin.products.edit_product')->with(compact('productDetails', 'categories_dropdown'));
         } else {
-            return redirect::back()->with('flash_message_error', 'Access denied!!');
+            return redirect()->back()->with('flash_message_error', 'Access denied!!');
         }
     }
 
@@ -95,7 +146,7 @@ class VendorController extends Controller {
                 return redirect()->back()->with('flash_message_success', 'Vendor Deleted Successfully');
             }
         } else {
-            return redirect::back()->with('flash_message_error', 'Access denied!!');
+            return redirect()->back()->with('flash_message_error', 'Access denied!!');
         }
     }
 
