@@ -31,7 +31,6 @@ class VendorController extends Controller {
             return redirect::back()->with('flash_message_error', 'Access denied!!');
         }
     }
-
     public function create(Request $request) {
         if (Session::has('adminSession')) {
             if ($request->isMethod('post')) {
@@ -50,6 +49,7 @@ class VendorController extends Controller {
                             $extension = $image_temp->getClientOriginalExtension();
                             $filename = mt_rand(000, 9999999999) . '.' . $extension;
                             $filepath = 'uploads/vendor/' . $filename;
+                            //upload the image
                             Image::make($image_temp)->resize(100, 100)->save($filepath);
                             $restaurant->logo = $filename;
                         }
