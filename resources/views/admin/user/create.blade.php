@@ -43,13 +43,13 @@
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
-                    <form role="form" method="post" action="{{url('/admin/user/create/')}}">{{ csrf_field() }}
+                    <form role="form" method="post" action="{{ route('register') }}">{{ csrf_field() }}
                         <div class="row">
                             <div class="col-sm-6">
                                 <!-- text input -->
                                 <div class="form-group">
                                     <label>Name</label>
-                                    <input type="text" name="u_name" class="form-control"  required placeholder="Enter...">
+                                    <input type="text" name="name" class="form-control"  required placeholder="Enter...">
                                 </div>
                             </div>
                         </div>
@@ -58,31 +58,29 @@
                                 <!-- text input -->
                                 <div class="form-group">
                                     <label>Email</label>
-                                    <input type="email" name="u_email"  class="form-control" required placeholder="Enter...">
-                                </div>
-                            </div>
-                        </div>
-                         <div class="row">
-                            <div class="col-sm-6">
-                                <!-- text input -->
-                                <div class="form-group">
-                                    <label>Password</label>
-                                    <input type="password" name="u_pass"  class="form-control" required placeholder="Enter...">
+                                    <input type="email" name="email"  class="form-control" required placeholder="Enter...">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-6">
-                                <!-- select -->
+                                <!-- text input -->
                                 <div class="form-group">
-                                    <label>Restaurant(s)</label>
-                                    <select name="u_role"  required class="form-control">
-                                        <option value="0" selected >Vendor </option>
-                                        <option value="0"  >Admin </option>                                            
-                                    </select>
+                                    <label>Password</label>
+                                    <input type="password" name="password"  class="form-control" required placeholder="Enter...">
                                 </div>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <!-- text input -->
+                                <div class="form-group">
+                                    <label>Password</label>
+                                    <input type="password" name="password-confirmation"  class="form-control" required placeholder="Enter...">
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="row">
                             <div class="col-sm-6">
                                 <input type="submit" class="btn btn-success btn-sm">
