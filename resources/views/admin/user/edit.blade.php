@@ -66,7 +66,7 @@
                             <div class="col-sm-6">
                                 <!-- select -->
                                 <div class="form-group">
-                                    <label>Restaurant(s)</label>
+                                    <label>Role</label>
                                     <select name="u_role"  required class="form-control">
                                         @if($userDetails->role==0)
                                         <option value="0" selected >Vendor </option>

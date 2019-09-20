@@ -24,7 +24,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{url('/admin/dashboard')}}">Home</a></li>
-                        <li class="breadcrumb-item"><a href="{{url('/admin/user')}}">Users</li>
+                        <li class="breadcrumb-item"><a href="{{url('/admin/user')}}">Users</a></li>
                         <li class="breadcrumb-item active">View</li>
                     </ol>
                 </div>
@@ -37,7 +37,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title"><a href="{{url('/admin/user/create')}}" class="btn btn-primary btn-sm">Add New</a></h3>
+                        <h3 class="card-title"><a href="{{ url('admin/user/create') }}" class="btn btn-primary btn-sm">Add New</a></h3>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">

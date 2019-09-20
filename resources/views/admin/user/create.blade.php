@@ -24,8 +24,8 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{url('/admin/dashboard')}}">Home</a></li>
-                        <li class="breadcrumb-item"> <a href="{{url('/admin/vendor')}}">Vendors</a></li>
-                        <li class="breadcrumb-item active">Create</li>
+                        <li class="breadcrumb-item"> <a href="{{url('/admin/user')}}">Users</a></li>
+                        <li class="breadcrumb-item active">Update</li>
                     </ol>
                 </div>
             </div>
@@ -39,17 +39,17 @@
             <!-- general form elements disabled -->
             <div class="card card-warning">
                 <div class="card-header">
-                    <h3 class="card-title">Create Vendors form</h3>
+                    <h3 class="card-title">Create Users form</h3>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
-                    <form role="form" enctype="multipart/form-data" method="post" action="{{url('/admin/vendor/create')}}">{{ csrf_field() }}
+                    <form role="form" method="post" action="{{url('/admin/user/create/')}}">{{ csrf_field() }}
                         <div class="row">
                             <div class="col-sm-6">
                                 <!-- text input -->
                                 <div class="form-group">
-                                    <label>Restaurant Name</label>
-                                    <input type="text" name="r_name" class="form-control"  required placeholder="Enter ...">
+                                    <label>Name</label>
+                                    <input type="text" name="u_name" class="form-control"  required placeholder="Enter...">
                                 </div>
                             </div>
                         </div>
@@ -57,17 +57,17 @@
                             <div class="col-sm-6">
                                 <!-- text input -->
                                 <div class="form-group">
-                                    <label>Address</label>
-                                    <input type="text" name="r_address" class="form-control" required placeholder="Enter ...">
+                                    <label>Email</label>
+                                    <input type="email" name="u_email"  class="form-control" required placeholder="Enter...">
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                         <div class="row">
                             <div class="col-sm-6">
                                 <!-- text input -->
                                 <div class="form-group">
-                                    <label>Telephone</label>
-                                    <input type="text" name="r_tel"  required class="form-control" placeholder="Enter ...">
+                                    <label>Password</label>
+                                    <input type="password" name="u_pass"  class="form-control" required placeholder="Enter...">
                                 </div>
                             </div>
                         </div>
@@ -75,21 +75,11 @@
                             <div class="col-sm-6">
                                 <!-- select -->
                                 <div class="form-group">
-                                    <label>Owner</label>
-                                    <select name="r_owner"  required class="form-control">
-                                        <?php echo $owners_dropdown ?>
+                                    <label>Restaurant(s)</label>
+                                    <select name="u_role"  required class="form-control">
+                                        <option value="0" selected >Vendor </option>
+                                        <option value="0"  >Admin </option>                                            
                                     </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label for="customFile">Logo</label>
-                                    <div class="custom-file">
-                                        <input type="file" name="r_logo" class="custom-file-input" id="r_logo">
-                                        <label class="custom-file-label" for="customFile">Choose file</label>
-                                    </div>
                                 </div>
                             </div>
                         </div>

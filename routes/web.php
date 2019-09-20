@@ -21,6 +21,7 @@ Route::match(['get', 'post'], '/admin/vendor/delete/{id}', 'VendorController@del
 
 //users routes
 Route::get('/admin/user', 'UserController@index');
+Route::match(['get', 'post'], '/admin/user/create', 'UserController@create');
 Route::match(['get', 'post'], '/admin/user/edit/{id}', 'UserController@update');
 Route::match(['get', 'post'], '/admin/user/delete/{id}', 'UserController@delete');
 
