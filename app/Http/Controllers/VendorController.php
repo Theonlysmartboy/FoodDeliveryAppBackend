@@ -116,7 +116,7 @@ class VendorController extends Controller {
                 } else {
                     $selected = "";
                 }
-                $owners_dropdown = "<option value='" . $owner->id . "'" . $selected . ">" . $owner->name . "<option>";
+                $owners_dropdown = "<option value='" . $owner->id . "'" . $selected . ">" . $owner->name . "</option>";
             }
             //Categories dropdown end
 

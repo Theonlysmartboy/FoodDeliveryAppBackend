@@ -25,7 +25,7 @@
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{url('/admin/dashboard')}}">Home</a></li>
                         <li class="breadcrumb-item"> <a href="{{url('/admin/vendor')}}">Vendors</a></li>
-                        <li class="breadcrumb-item active">Create</li>
+                        <li class="breadcrumb-item active">Update</li>
                     </ol>
                 </div>
             </div>
