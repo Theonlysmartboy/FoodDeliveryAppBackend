@@ -73,8 +73,6 @@
                                         @endif
                                         @endforeach
                                     </td>
-
-
                                     <td><button data-toggle="modal" data-target="#userModal{{ $user->id }}" class="btn btn-success btn-sm">View <i class="icon icon-eye-open"></i></button> | 
                                         <a href="{{url('admin/user/edit/'.$user->id)}}" class="btn btn-warning btn-sm">Edit <i class="icon icon-edit"></i></a> | 
                                         <a rel="{{$user->id}}" rel1="delete" href="javascript:" class="btn btn-danger btn-sm deleteUser">Delete <i class="icon icon-trash"></i></a></td>

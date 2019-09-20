@@ -16,24 +16,25 @@ $(document).ready(function () {
             }
         });
     });
-    //Function to delete CATEGORY
+    //Function to delete User
     $(".deleteUser").click(function () {
         var id = $(this).attr('rel');
         var deleteFunction = $(this).attr('rel1');
-        swal({
-            title: "Are you sure You want to delete this category?",
+       Swal.fire({
+            title: 'Are you sure you want to delete this User?',
             text: "You won't be able to revert this!",
-            type: "warning",
+            type: 'warning',
             showCancelButton: true,
-            confirmButtonColor: "#FF0000",
-            cancelButtonColor: "#87CEFA",
-            confirmButtonText: "Yes, delete it!"
-        },
-                function () {
-                    window.location.href = "/admin/" + deleteFunction + "/" + id;
-                });
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#28a745',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.value) {
+                window.location.href = "/admin/user/" + deleteFunction + "/" + id;
+            }
+        });
     });
-    //Function to delete Booking
+    //Function to delete Vendor
     $(".deleteVendor").click(function () {
         var id = $(this).attr('rel');
         var deleteFunction = $(this).attr('rel1');
@@ -51,70 +52,6 @@ $(document).ready(function () {
             }
         });
 
-    });
-    $(".deleteClient").click(function () {
-        var id = $(this).attr('rel');
-        var deleteFunction = $(this).attr('rel1');
-        swal({
-            title: "Are you sure You want to delete this Client?",
-            text: "You won't be able to revert this!",
-            type: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#FF0000",
-            cancelButtonColor: "#87CEFA",
-            confirmButtonText: "Yes, delete it!"
-        },
-                function () {
-                    window.location.href = "/admin/" + deleteFunction + "/" + id;
-                });
-    });
-    $(".deleteAccount").click(function () {
-        var id = $(this).attr('rel');
-        var deleteFunction = $(this).attr('rel1');
-        swal({
-            title: "Are you sure You want to delete this Account?",
-            text: "You won't be able to revert this!",
-            type: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#FF0000",
-            cancelButtonColor: "#87CEFA",
-            confirmButtonText: "Yes, delete it!"
-        },
-                function () {
-                    window.location.href = "/admin/" + deleteFunction + "/" + id;
-                });
-    });
-    $(".deletePayment").click(function () {
-        var id = $(this).attr('rel');
-        var deleteFunction = $(this).attr('rel1');
-        swal({
-            title: "Are you sure You want to delete this Charge?",
-            text: "You won't be able to revert this!",
-            type: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#FF0000",
-            cancelButtonColor: "#87CEFA",
-            confirmButtonText: "Yes, delete it!"
-        },
-                function () {
-                    window.location.href = "/admin/" + deleteFunction + "/" + id;
-                });
-    });
-    $(".deleteService").click(function () {
-        var id = $(this).attr('rel');
-        var deleteFunction = $(this).attr('rel1');
-        swal({
-            title: "Are you sure You want to delete this Service?",
-            text: "You won't be able to revert this!",
-            type: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#FF0000",
-            cancelButtonColor: "#87CEFA",
-            confirmButtonText: "Yes, delete it!"
-        },
-                function () {
-                    window.location.href = "/admin/" + deleteFunction + "/" + id;
-                });
     });
     $("#autoclose").fadeTo(5000, 500).slideUp(500, function () {
         $("#autoclose").slideUp(500);
