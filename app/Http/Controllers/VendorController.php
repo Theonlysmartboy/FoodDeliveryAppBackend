@@ -31,6 +31,7 @@ class VendorController extends Controller {
             return redirect::back()->with('flash_message_error', 'Access denied!!');
         }
     }
+
     public function create(Request $request) {
         if (Session::has('adminSession')) {
             if ($request->isMethod('post')) {
@@ -78,54 +79,48 @@ class VendorController extends Controller {
             if ($request->isMethod('post')) {
                 $data = $request->all();
                 //upload image
-                if ($request->hasFile('product_image')) {
-                    $image_tmp = Input::file('product_image');
-                    if ($image_tmp->isValid()) {
-                        $extension = $image_tmp->getClientOriginalExtension();
-                        $filename = rand(1, 999999) . '.' . $extension;
-                        $logo_path = 'images/frontend_images/products/small/' . $filename;
+                if ($request->hasFile('r_logo')) {
+                    $image_temp = $request->file('r_logo');
+                    if ($image_temp->isValid()) {
+                        $extension = $image_temp->getClientOriginalExtension();
+                        $filename = rand(000, 9999999999) . '.' . $extension;
+                        $logo_path = 'uploads/vendor/' . $filename;
                         //Resize images
-                        Image::make($image_tmp)->resize(100, 100)->save($logo_path);
+                        Image::make($image_temp)->resize(100, 100)->save($logo_path);
                         $restaurant = Restaurant::where(['id' => $id])->first();
                         //Get product image paths
-                        $logo_path = 'images/frontend_images/products/small/';
+                        $logo_path = 'uploads/vendor/';
                         //Delete the logo if exists
                         if (file_exists($logo_path . $restaurant->logo)) {
                             unlink($logo_path . $restaurant->logo);
                         }
                     }
                 } else {
-                    $filename = $data['current_image'];
+                    $filename = $data['current_logo'];
                 }
                 if (!empty($data['product_desc'])) {
                     $description = $data['product_desc'];
                 } else {
                     $description = '_';
                 }
-                Restaurant::where(['id' => $id])->update(['category_id' => $data['category_id'], 'product_name' => $data['product_name'],
-                    'product_code' => $data['product_code'], 'product_color' => $data['product_color'], 'description' => $description,
-                    'price' => $data['product_cost'], 'image' => $filename]);
-                return redirect('/admin/view_products')->with('flash_message_success', 'Product updated Successfully');
+                Restaurant::where(['id' => $id])->update(['r_name' => $data['r_name'], 'adress' => $data['r_address'],
+                    'telephone' => $data['r_tel'], 'logo' => $filename, 'owner_id' => $data['r_owner']]);
+                return redirect('/admin/vendor')->with('flash_message_success', 'Product updated Successfully');
             }
             $restaurantDetails = Restaurant::where(['id' => $id])->first();
             //Categfories drop down start
-            $owner = User::where(['owner_id' => 0])->get();
-            $categories_dropdown = "<option selected disabled>Select<option>";
-            foreach ($categories as $cat) {
-                $categories_dropdown .= "<option value='" . $cat->id . "'>" . $cat->name . "<option>";
-                $sub_categories = Category::where(['parent_id' => $cat->id])->get();
-                foreach ($sub_categories as $sub_cat) {
-                    if ($sub_cat->id == $productDetails->category_id) {
-                        $selected = "selected";
-                    } else {
-                        $selected = "";
-                    }
-                    $categories_dropdown .= "<option value='" . $sub_cat->id . "'" . $selected . ">&nbsp;--&nbsp;" . $sub_cat->name . "<option>";
+            $owners = User::where(['role' => 0])->get();
+            foreach ($owners as $owner) {
+                if ($owner->id == $restaurantDetails->owner_id) {
+                    $selected = "selected";
+                } else {
+                    $selected = "";
                 }
+                $owners_dropdown = "<option value='" . $owner->id . "'" . $selected . ">" . $owner->name . "<option>";
             }
             //Categories dropdown end
 
-            return view('admin.products.edit_product')->with(compact('productDetails', 'categories_dropdown'));
+            return view('admin.vendor.edit')->with(compact('restaurantDetails', 'owners_dropdown'));
         } else {
             return redirect()->back()->with('flash_message_error', 'Access denied!!');
         }
