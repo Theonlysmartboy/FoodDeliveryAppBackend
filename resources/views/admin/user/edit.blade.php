@@ -70,11 +70,11 @@
                                     <select name="u_role"  required class="form-control">
                                         @if($userDetails->role==0)
                                         <option value="0" selected >Vendor </option>
-                                        <option value="0"  >Admin </option>
-                                            @elseif($userDetails->role==1)
+                                        <option value="1"  >Admin </option>
+                                        @elseif($userDetails->role==1)
                                         <option value="0"  >Vendor </option>
-                                        <option value="0" selected  >Admin </option>
-                                            @endif
+                                        <option value="1" selected  >Admin </option>
+                                        @endif
                                     </select>
                                 </div>
                             </div>

@@ -110,13 +110,13 @@ class VendorController extends Controller {
             $restaurantDetails = Restaurant::where(['id' => $id])->first();
             //Categfories drop down start
             $owners = User::where(['role' => 0])->get();
+            $owners_dropdown = "<option>Select</option>";
             foreach ($owners as $owner) {
                 if ($owner->id == $restaurantDetails->owner_id) {
-                    $selected = "selected";
+                    $owners_dropdown .= "<option value='" . $owner->id . "' selected>" . $owner->name . "</option>";
                 } else {
-                    $selected = "";
+                    $owners_dropdown .= "<option value='" . $owner->id . "'>" . $owner->name . "</option>";
                 }
-                $owners_dropdown = "<option value='" . $owner->id . "'" . $selected . ">" . $owner->name . "</option>";
             }
             //Categories dropdown end
 

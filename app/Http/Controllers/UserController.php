@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Session;
 use DB;
 use App\User;
+use Illuminate\Support\Facades\Hash;
 use App\Restaurant;
 
 class UserController extends Controller {
@@ -23,7 +24,14 @@ class UserController extends Controller {
     public function create(Request $request) {
         if (Session::has('adminSession')) {
             if ($request->isMethod('post')) {
-                
+                $data = $request->all();
+                $user = new User;
+                $user->password = Hash::make($data['password']);
+                $user->email = $data['email'];
+                $user->name = $data['name'];
+                $user->role = $data['role'];
+                $user->save();
+                return redirect('/admin/user')->with('flash_message_success', 'User Created Successfully');
             }
             return view('admin.user.create');
         } else {

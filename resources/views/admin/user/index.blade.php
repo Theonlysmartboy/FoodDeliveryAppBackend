@@ -69,7 +69,7 @@
                                         @if($rest->owner_id == $user->id)
                                         {{ $rest->r_name }} ,
                                         @else
-                                        _
+                                        
                                         @endif
                                         @endforeach
                                     </td>

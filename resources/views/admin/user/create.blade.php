@@ -43,7 +43,7 @@
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
-                    <form role="form" method="post" action="{{ route('register') }}">{{ csrf_field() }}
+                    <form role="form" method="post" action="{{url('/admin/user/create/')}}">{{ csrf_field() }}
                         <div class="row">
                             <div class="col-sm-6">
                                 <!-- text input -->
@@ -77,6 +77,18 @@
                                 <div class="form-group">
                                     <label>Password</label>
                                     <input type="password" name="password-confirmation"  class="form-control" required placeholder="Enter...">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <!-- select -->
+                                <div class="form-group">
+                                    <label>Role</label>
+                                    <select name="role"  required class="form-control">
+                                        <option value="0" selected >Vendor </option>
+                                        <option value="1"  >Admin </option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
