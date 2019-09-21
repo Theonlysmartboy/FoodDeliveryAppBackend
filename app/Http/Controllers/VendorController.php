@@ -28,7 +28,7 @@ class VendorController extends Controller {
                     ->get();
             return view('admin.vendor.index')->with(compact('vendors'));
         } else {
-            return redirect::back()->with('flash_message_error', 'Access denied!!');
+            return redirect()->back()->with('flash_message_error', 'Access denied!!');
         }
     }
 

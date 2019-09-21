@@ -17,7 +17,7 @@ class UserController extends Controller {
             $restaurants = Restaurant::get();
             return view('admin.user.index')->with(compact('users', 'restaurants'));
         } else {
-            return redirect::back()->with('flash_message_error', 'Access denied!!');
+            return redirect()->back()->with('flash_message_error', 'Access denied!!');
         }
     }
 
@@ -35,7 +35,7 @@ class UserController extends Controller {
             }
             return view('admin.user.create');
         } else {
-            return redirect::back()->with('flash_message_error', 'Access denied!!');
+            return redirect()->back()->with('flash_message_error', 'Access denied!!');
         }
     }
 
@@ -53,7 +53,7 @@ class UserController extends Controller {
                 return view('admin.user.edit')->with(compact('userDetails'));
             }
         }
-        return redirect()::back()->with('flash_message_error', 'Access denied');
+        return redirect()->back()->with('flash_message_error', 'Access denied');
     }
 
 }
