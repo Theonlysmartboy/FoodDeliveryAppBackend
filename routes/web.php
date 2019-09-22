@@ -25,16 +25,23 @@ Route::match(['get', 'post'], '/admin/user/create', 'UserController@create');
 Route::match(['get', 'post'], '/admin/user/edit/{id}', 'UserController@update');
 Route::match(['get', 'post'], '/admin/user/delete/{id}', 'UserController@delete');
 
-
 //Product routes
 Route::get('/vendor/product', 'ProductController@index');
-Route::get('/vendor/product', 'ProductController@update');
-Route::get('/vendor/product', 'ProductController@delete');
+Route::match(['get', 'post'], '/admin/product/create', 'ProductController@create');
+Route::match(['get', 'post'], '/admin/product/edit/{id}', 'ProductController@update');
+Route::match(['get', 'post'], '/admin/product/delete/{id}', 'ProductController@delete');
 
 //Sales routes
 Route::get('/vendor/sales', 'SalesController@index');
-Route::get('/vendor/sales', 'SalesController@update');
-Route::get('/vendor/sales', 'SalesController@delete');
+Route::match(['get', 'post'], '/admin/sales/create', 'SalesController@create');
+Route::match(['get', 'post'], '/admin/sales/edit/{id}', 'SalesController@update');
+Route::match(['get', 'post'], '/admin/sales/delete/{id}', 'SalesController@delete');
+
+//Zones Routes
+Route::get('/vendor/zone', 'ZoneController@index');
+Route::match(['get', 'post'], '/admin/zone/create', 'ZoneController@create');
+Route::match(['get', 'post'], '/admin/zone/edit/{id}', 'ZoneController@update');
+Route::match(['get', 'post'], '/admin/zone/delete/{id}', 'ZoneController@delete');
 
 Auth::routes();
 

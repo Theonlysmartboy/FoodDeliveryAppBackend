@@ -51,7 +51,6 @@ $(document).ready(function () {
                 window.location.href = "/admin/vendor/" + deleteFunction + "/" + id;
             }
         });
-
     });
     //Automatically close alerts
     window.setTimeout(function () {

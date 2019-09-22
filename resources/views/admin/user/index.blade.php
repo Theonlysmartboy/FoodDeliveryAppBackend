@@ -7,7 +7,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Vendors</h1>
+                    <h1>Users</h1>
                     @if(Session::has('flash_message_error'))
                     <div class="alert alert-danger alert-block" id="autoClose" >
                         <button type="button" class="close" data-dismiss="alert">×</button>	
