@@ -36,7 +36,6 @@ class VendorController extends Controller {
         if (Session::has('adminSession')) {
             if ($request->isMethod('post')) {
                 $data = $request->all();
-                //echo"<pre>"; print_r($data); die;
                 $restaurant = new Restaurant;
                 $restaurant->r_name = $data['r_name'];
                 $restaurant->adress = $data['r_address'];

@@ -20,7 +20,13 @@ class ZoneController extends Controller {
     public function create(Request $request) {
         if (Session::has('adminSession')) {
             if ($request->isMethod('post')) {
-                
+                $data = $request->all();
+                $zone = new Zone();
+                $zone->zone_name = $data['z_name'];
+                $zone->cost = $data['z_cost'];
+                $zone->drop_off = $data['d_point'];
+                $zone->save();
+                return redirect('/admin/zone')->with('flash_message_success', 'Zone added Successfully');
             } else {
                 return view('admin.zone.create');
             }
