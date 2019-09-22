@@ -35,6 +35,21 @@ class ZoneController extends Controller {
         }
     }
 
+    public function update(Request $request, $id = null) {
+        if (Session::has('adminSession')) {
+            if ($request->isMethod('post')) {
+                $data = $request->all();
+                Zone::where(['id' => $id])->update(['zone_name' => $data['z_name'], 'drop_off' => $data['d_point'], 'cost' => $data['z_cost']]);
+                return redirect('/admin/zone')->with('flash_message_success', 'Zone updated Successfully');
+            } else {
+                $zoneDetails = Zone::where(['id' => $id])->first();
+                return view('admin.zone.edit')->with(compact('zoneDetails'));
+            }
+        } else {
+            return redirect()->back()->with('flash_message_error', 'Access Denied');
+        }
+    }
+
     public function delete($id = null) {
         if (Session::has('adminSession')) {
             if (!empty($id)) {

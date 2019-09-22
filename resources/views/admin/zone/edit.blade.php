@@ -7,7 +7,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Vendors</h1>
+                    <h1>Zones</h1>
                     @if(Session::has('flash_message_error'))
                     <div class="alert alert-danger alert-block" id="autoClose" >
                         <button type="button" class="close" data-dismiss="alert">×</button>	
@@ -24,7 +24,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{url('/admin/dashboard')}}">Home</a></li>
-                        <li class="breadcrumb-item"> <a href="{{url('/admin/vendor')}}">Vendors</a></li>
+                        <li class="breadcrumb-item"> <a href="{{url('/admin/zone')}}">Zones</a></li>
                         <li class="breadcrumb-item active">Update</li>
                     </ol>
                 </div>
@@ -39,26 +39,17 @@
             <!-- general form elements disabled -->
             <div class="card card-warning">
                 <div class="card-header">
-                    <h3 class="card-title">Create Vendors form</h3>
+                    <h3 class="card-title">Create Zones form</h3>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
-                    <form role="form" enctype="multipart/form-data" method="post" action="{{url('/admin/vendor/edit/'.$restaurantDetails->id)}}">{{ csrf_field() }}
+                    <form role="form" method="post" action="{{url('/admin/zone/edit/'.$zoneDetails->id)}}">{{ csrf_field() }}
                         <div class="row">
                             <div class="col-sm-6">
                                 <!-- text input -->
                                 <div class="form-group">
-                                    <label>Restaurant Name</label>
-                                    <input type="text" name="r_name" class="form-control"  required value="{{$restaurantDetails->r_name}}">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <!-- text input -->
-                                <div class="form-group">
-                                    <label>Address</label>
-                                    <input type="text" name="r_address" class="form-control" required value="{{$restaurantDetails->adress}}">
+                                    <label>Zone Name</label>
+                                    <input type="text" name="z_name" class="form-control"  required value="{{$zoneDetails->zone_name}}">
                                 </div>
                             </div>
                         </div>
@@ -66,32 +57,17 @@
                             <div class="col-sm-6">
                                 <!-- text input -->
                                 <div class="form-group">
-                                    <label>Telephone</label>
-                                    <input type="text" name="r_tel"  required class="form-control" value="{{$restaurantDetails->telephone}}">
+                                    <label>Drop off point</label>
+                                    <input type="text" name="d_point" class="form-control" required value="{{$zoneDetails->drop_off}}">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-6">
-                                <!-- select -->
+                                <!-- text input -->
                                 <div class="form-group">
-                                    <label>Owner</label>
-                                    <select name="r_owner"  required class="form-control">
-                                        <?php echo $owners_dropdown ?>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label for="customFile">Logo</label>
-                                    <img src="{{asset('uploads/vendor/'.$restaurantDetails->logo)}}"/>
-                                    <div class="custom-file">
-                                        <input type="file" name="r_logo" class="custom-file-input" id="r_logo">
-                                        <input type="hidden" name="current_logo" value="{{$restaurantDetails->logo}}"
-                                        <label class="custom-file-label" for="customFile">Choose file</label>
-                                    </div>
+                                    <label>cost</label>
+                                    <input type="text" name="z_cost"  required class="form-control" value="{{$zoneDetails->cost}}">
                                 </div>
                             </div>
                         </div>
