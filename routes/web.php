@@ -38,7 +38,7 @@ Route::match(['get', 'post'], '/admin/sales/edit/{id}', 'SalesController@update'
 Route::match(['get', 'post'], '/admin/sales/delete/{id}', 'SalesController@delete');
 
 //Zones Routes
-Route::get('/vendor/zone', 'ZoneController@index');
+Route::get('/admin/zone', 'ZoneController@index');
 Route::match(['get', 'post'], '/admin/zone/create', 'ZoneController@create');
 Route::match(['get', 'post'], '/admin/zone/edit/{id}', 'ZoneController@update');
 Route::match(['get', 'post'], '/admin/zone/delete/{id}', 'ZoneController@delete');

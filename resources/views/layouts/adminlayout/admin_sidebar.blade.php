@@ -54,12 +54,12 @@
                         </li>
                     </ul>
                 </li>          
-                <li class="nav-header">EXAMPLES</li>
+                <li class="nav-header">Zone/Delivery fee management</li>
                 <li class="nav-item">
-                    <a href="pages/calendar.html" class="nav-link">
+                    <a href="{{url('admin/zone')}}" class="nav-link">
                         <i class="nav-icon far fa-calendar-alt"></i>
                         <p>
-                            Calendar
+                            Zones
                             <span class="badge badge-info right">2</span>
                         </p>
                     </a>

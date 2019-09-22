@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Zone;
 
+use App\Zone;
+use Session;
 use Illuminate\Http\Request;
 
 class ZoneController extends Controller {
@@ -15,5 +16,18 @@ class ZoneController extends Controller {
             return redirect()->back()->with('flash_message_error', 'Access Denied');
         }
     }
+
+    public function create(Request $request) {
+        if (Session::has('adminSession')) {
+            if ($request->isMethod('post')) {
+                
+            } else {
+                return view('admin.zone.create');
+            }
+        } else {
+            return redirect()->back()->with('flash_message_error', 'Access Denied');
+        }
+    }
+    
 
 }

@@ -7,7 +7,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Vendors</h1>
+                    <h1>Zones</h1>
                     @if(Session::has('flash_message_error'))
                     <div class="alert alert-danger alert-block" id="autoClose" >
                         <button type="button" class="close" data-dismiss="alert">×</button>	
@@ -24,7 +24,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{url('/admin/dashboard')}}">Home</a></li>
-                        <li class="breadcrumb-item">Vendors</li>
+                        <li class="breadcrumb-item">Zones</li>
                         <li class="breadcrumb-item active">View</li>
                     </ol>
                 </div>
@@ -37,7 +37,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title"><a href="{{url('/admin/vendor/create')}}" class="btn btn-primary btn-sm">Add New</a></h3>
+                        <h3 class="card-title"><a href="{{url('/admin/zone/create')}}" class="btn btn-primary btn-sm">Add New</a></h3>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
@@ -45,41 +45,38 @@
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Restaurant Name</th>
-                                    <th>Address</th>
-                                    <th>Telephone</th>
-                                    <th>Owner</th>
-                                    <th>Logo</th>
+                                    <th>Zone Name</th>
+                                    <th>Rider</th>
+                                    <th>Drop Off Point</th>
+                                    <th>Cost</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($vendors as $vendor)
+                                @foreach($zones as $zone)
                                 <tr>
-                                    <td class="text-center">{{ $vendor->id }}</td>
-                                    <td class="text-center">{{$vendor->r_name}}</td>
-                                    <td class="text-center">{{ $vendor->adress }}</td>
-                                    <td class="text-center">{{ $vendor->telephone }}</td>
-                                    <td class="text-center">{{ $vendor->owner }}</td>
-                                    <td class="text-center"><img src="{{asset('uploads/vendor/'.$vendor->logo)}}"></td>
-                                    <td><button data-toggle="modal" data-target="#vendorModal{{ $vendor->id }}" class="btn btn-success btn-sm">View <i class="icon icon-eye-open"></i></button> | 
-                                        <a href="{{url('admin/vendor/edit/'.$vendor->id)}}" class="btn btn-warning btn-sm">Edit <i class="icon icon-edit"></i></a> | 
-                                        <a rel="{{$vendor->id}}" rel1="delete" href="javascript:" class="btn btn-danger btn-sm deleteVendor">Delete <i class="icon icon-trash"></i></a></td>
+                                    <td class="text-center">{{ $zone->id }}</td>
+                                    <td class="text-center">{{$zone->zone_name}}</td>
+                                    <td class="text-center">{{$zone->rider}}</td>
+                                    <td class="text-center">{{ $zone->drop_off }}</td>
+                                    <td class="text-center">{{ $zone->cost }}</td>
+                                    <td><button data-toggle="modal" data-target="#zoneModal{{ $zone->id }}" class="btn btn-success btn-sm">View <i class="icon icon-eye-open"></i></button> | 
+                                        <a href="{{url('admin/zone/edit/'.$zone->id)}}" class="btn btn-warning btn-sm">Edit <i class="icon icon-edit"></i></a> | 
+                                        <a rel="{{$zone->id}}" rel1="delete" href="javascript:" class="btn btn-danger btn-sm deleteZone">Delete <i class="icon icon-trash"></i></a></td>
                                 </tr>
-                            <div class="modal fade" id="vendorModal{{ $vendor->id }}">
+                            <div class="modal fade" id="zoneModal{{ $zone->id }}">
                                 <div class="modal-dialog">
                                     <div class="modal-content bg-primary">
                                         <div class="modal-header">
-                                            <h4 class="modal-title">Name: {{ $vendor->r_name }}</h4>
+                                            <h4 class="modal-title">Name: {{ $zone->zone_name }}</h4>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span></button>
                                         </div>
                                         <div class="modal-body">
-                                            <p class="text-center">Address: {{ $vendor->adress }}</p>
-                                            <p class="text-center">TELEPHONE: {{ $vendor->telephone }}</p>
-                                            <p class="text-center bg-primary">Owner/ Representative: {{$vendor->owner}}</p>
-                                            <p class="text-center">OWNER EMAIL: {{ $vendor->email}}</p>
-                                            <p class="text-center">DATE CREATED: {{$vendor->created_at}}</p>
+                                            <p class="text-center">Drop off Point: {{ $zone->drop_off }}</p>
+                                            <p class="text-center">Rider: {{ $zone->rider }}</p>
+                                            <p class="text-center bg-primary">Cost: {{$zone->cost}}</p>
+                                            <p class="text-center">DATE CREATED: {{$zone->created_at}}</p>
                                         </div>
                                         <div class="modal-footer justify-content-between">
                                             <button type="button" class="btn btn-outline-light" data-dismiss="modal">Close</button>
@@ -95,11 +92,10 @@
                             <tfoot>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Restaurant Name</th>
-                                    <th>Address</th>
-                                    <th>Telephone</th>
-                                    <th>Owner</th>
-                                    <th>Logo</th>
+                                    <th>Zone Name</th>
+                                    <th>Rider</th>
+                                    <th>Drop Off Point</th>
+                                    <th>Cost</th>
                                     <th>Action</th>
                                 </tr>
                             </tfoot>
