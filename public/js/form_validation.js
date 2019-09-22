@@ -20,7 +20,7 @@ $(document).ready(function () {
     $(".deleteUser").click(function () {
         var id = $(this).attr('rel');
         var deleteFunction = $(this).attr('rel1');
-       Swal.fire({
+        Swal.fire({
             title: 'Are you sure you want to delete this User?',
             text: "You won't be able to revert this!",
             type: 'warning',
@@ -53,7 +53,10 @@ $(document).ready(function () {
         });
 
     });
-    $("#autoclose").fadeTo(5000, 500).slideUp(500, function () {
-        $("#autoclose").slideUp(500);
-    });
+    //Automatically close alerts
+    window.setTimeout(function () {
+        $(".alert").fadeTo(500, 0).slideUp(500, function () {
+            $(this).remove();
+        });
+    }, 4000);
 });
