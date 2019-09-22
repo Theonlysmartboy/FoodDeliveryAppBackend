@@ -28,6 +28,16 @@ class ZoneController extends Controller {
             return redirect()->back()->with('flash_message_error', 'Access Denied');
         }
     }
-    
+
+    public function delete($id = null) {
+        if (Session::has('adminSession')) {
+            if (!empty($id)) {
+                Zone::where(['id' => $id])->delete();
+                return redirect()->back()->with('flash_message_success', 'Zone Deleted Successfully');
+            }
+        } else {
+            return redirect()->back()->with('flash_message_error', 'Access denied!!');
+        }
+    }
 
 }
