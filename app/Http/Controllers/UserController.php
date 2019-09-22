@@ -55,12 +55,14 @@ class UserController extends Controller {
         }
         return redirect()->back()->with('flash_message_error', 'Access denied');
     }
-public function delete(Request $request,$id=null){
-    if(Session::has('adminSession')){
-        if($request->isMethod('post')){
-            User::where(['id'=>$id])->delete();
-            return redirect()->back()->with('flash_message_success','User Deleted successfully');
+
+    public function delete($id = null) {
+        if (Session::has('adminSession')) {
+            if (!empty($id)) {
+                User::where(['id' => $id])->delete();
+                return redirect()->back()->with('flash_message_success', 'User Deleted successfully');
+            }
         }
     }
-}
+
 }
