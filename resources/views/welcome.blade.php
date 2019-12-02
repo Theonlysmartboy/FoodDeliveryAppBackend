@@ -50,8 +50,8 @@ URI     : https://otemainc.com
     </div>
     <header class="bg-gradient" id="home">
         <div class="container mt-5">
-            <h1>Mobile App Landing Page Template</h1>
-            <p class="tagline">The one and only solution for any kind of mobila app landing needs. Just change the screenshots and texts and you are good to go. </p>
+            <h1>Food Fuzz</h1>
+            <p class="tagline">A family picnic in the park. Your date night at home. That late-night study session. Spend more time doing the things that matter to you most — we’ll take care of the rest. </p>
         </div>
         <div class="img-holder mt-3"><img src="{{asset('front_end/images/screen1.png')}}" alt="phone" class="img-fluid"></div>
     </header>
@@ -121,7 +121,7 @@ URI     : https://otemainc.com
                 </div>
             </div>
             <div class="perspective-phone">
-                <img src="{{asset('front_end/images/perspective.png')}}" alt="perspective phone" class="img-fluid">
+                <img src="{{asset('front_end/images/screen7.png')}}" alt="perspective phone" class="img-fluid">
             </div>
         </div>
     </div>
@@ -410,10 +410,10 @@ URI     : https://otemainc.com
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 text-center text-lg-left">
-                    <p class="mb-2"> <span class="ti-location-pin mr-2"></span> 1485 Pacific St, Brooklyn, NY 11216 USA</p>
+                    <p class="mb-2"> <span class="ti-location-pin mr-2"></span> P.O Box Kisumu</p>
                     <div class=" d-block d-sm-inline-block">
                         <p class="mb-2">
-                            <span class="ti-email mr-2"></span> <a class="mr-4" href="mailto:support@mobileapp.com">support@mobileapp.com</a>
+                            <span class="ti-email mr-2"></span> <a class="mr-4" href="mailto:support@foodfuzz.co.ke">support@foodfuzz.co.ke</a>
                         </p>
                     </div>
                     <div class="d-block d-sm-inline-block">
@@ -435,7 +435,7 @@ URI     : https://otemainc.com
     <!-- // end .section -->
     <footer class="my-5 text-center">
         <!-- Copyright removal is not prohibited! -->
-        <p class="mb-2"><small>COPYRIGHT © 2017. ALL RIGHTS RESERVED. MOBAPP TEMPLATE BY <a href="https://colorlib.com">COLORLIB</a></small></p>
+        <p class="mb-2"><small>COPYRIGHT © 2019. ALL RIGHTS RESERVED. DESIGNED AND DEVELOPED BY <a href="https://otemainc.com">OTEMA TECHNOLOGIES</a></small></p>
         <small>
             <a href="#" class="m-2">PRESS</a>
             <a href="#" class="m-2">TERMS</a>
