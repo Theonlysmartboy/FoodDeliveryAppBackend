@@ -81,7 +81,7 @@
                                     </div>
                                     <!-- /.card-header -->
                                     <!-- form start -->
-                                    <form class="form-horizontal"method="post" action="{{url('/')}}"> {{ csrf_field() }}
+                                    <form class="form-horizontal"method="post" action="{{url('/admin')}}"> {{ csrf_field() }}
                                         <div class="card-body">
                                             <div class="form-group row">
                                                 <label for="inputEmail3" class="col-sm-2 control-label">Email</label>

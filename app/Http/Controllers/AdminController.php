@@ -21,7 +21,7 @@ class AdminController extends Controller {
                 Session::put('vendorSession', $data['email']);
                 return redirect('/vendor/dashboard')->with('flash_message_success', 'Login Successfull');
             } else {
-                return redirect('/')->with('flash_message_error', 'Invalid Email Or password');
+                return redirect('/admin')->with('flash_message_error', 'Invalid Email Or password');
             }
         } else if (Session::has('adminSession')) {
             return redirect('/admin/dashboard')->with('flash_message_success', 'Login Successfull');
@@ -36,7 +36,7 @@ class AdminController extends Controller {
 
             return view('admin.admin_dashboard');
         } else {
-            return redirect('/')->with('flash_message_error', 'Access denied! Please Login first');
+            return redirect('/admin')->with('flash_message_error', 'Access denied! Please Login first');
         }
     }
 
@@ -44,7 +44,7 @@ class AdminController extends Controller {
         if (Session::has('adminSession')) {
             return view('admin.settings');
         } else {
-            return redirect('/')->with('flash_message_error', 'Access denied! Please Login first');
+            return redirect('/admin')->with('flash_message_error', 'Access denied! Please Login first');
         }
     }
 
@@ -61,7 +61,7 @@ class AdminController extends Controller {
                 die;
             }
         } else {
-            return redirect('/')->with('flash_message_error', 'Access denied! Please Login first');
+            return redirect('/admin')->with('flash_message_error', 'Access denied! Please Login first');
         }
     }
 
