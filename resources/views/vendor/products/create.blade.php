@@ -43,7 +43,7 @@
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
-                    <form role="form" enctype="multipart/form-data" method="post" action="{{url('/admin/vendor/create')}}">{{ csrf_field() }}
+                    <form role="form" enctype="multipart/form-data" method="post" action="{{url('/vendor/product/create')}}">{{ csrf_field() }}
                         <div class="row">
                             <div class="col-sm-6">
                                 <!-- text input -->
@@ -65,7 +65,7 @@
                          <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label for="customFile">Logo</label>
+                                    <label for="customFile">Image</label>
                                     <div class="custom-file">
                                         <input type="file" name="p_image" class="custom-file-input" id="p_image">
                                         <label class="custom-file-label" for="customFile">Choose file</label>
