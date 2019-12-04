@@ -66,17 +66,8 @@
                             <div class="col-sm-6">
                                 <!-- text input -->
                                 <div class="form-group">
-                                    <label>Password</label>
-                                    <input type="password" name="password"  class="form-control" required placeholder="Enter...">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <!-- text input -->
-                                <div class="form-group">
-                                    <label>Password</label>
-                                    <input type="password" name="password-confirmation"  class="form-control" required placeholder="Enter...">
+                                    <label>Password <small>The default password is Changeme@2020# you may like to leave it the same but if you wish to change it, the replace the text in the text field with your own password</small></label>
+                                    <input type="password" name="password"  class="form-control" required placeholder="Enter..." value="Changeme@2020#">
                                 </div>
                             </div>
                         </div>

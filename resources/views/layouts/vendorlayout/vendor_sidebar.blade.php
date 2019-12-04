@@ -31,50 +31,33 @@
                         </p>
                     </a>
                 </li>               
-                <li class="nav-header">EXAMPLES</li>
+                <li class="nav-header">PRODUCTS</li>
                 <li class="nav-item">
-                    <a href="pages/calendar.html" class="nav-link">
+                    <a href="{{url('vendor/meals')}}" class="nav-link">
                         <i class="nav-icon far fa-calendar-alt"></i>
                         <p>
-                            Calendar
+                            Meals
                             <span class="badge badge-info right">2</span>
                         </p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="pages/gallery.html" class="nav-link">
+                    <a href="{{url('vendor/drinks')}}" class="nav-link">
                         <i class="nav-icon far fa-image"></i>
                         <p>
-                            Gallery
+                            Drinks
                         </p>
                     </a>
                 </li>
-                <li class="nav-header">MISCELLANEOUS</li>
+                <li class="nav-header">SALES</li>
                 <li class="nav-item">
-                    <a href="https://adminlte.io/docs/3.0" class="nav-link">
+                    <a href="{{url('vendor/orders')}" class="nav-link">
                         <i class="nav-icon fas fa-file"></i>
-                        <p>Documentation</p>
+                        <p>Orders</p>
                     </a>
                 </li>
                 <li class="nav-header">LABELS</li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon far fa-circle text-danger"></i>
-                        <p class="text">Important</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon far fa-circle text-warning"></i>
-                        <p>Warning</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon far fa-circle text-info"></i>
-                        <p>Informational</p>
-                    </a>
-                </li>
+               
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

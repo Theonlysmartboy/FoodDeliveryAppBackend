@@ -38,9 +38,10 @@ URI     : https://otemainc.com
                                 <li class="nav-item"> <a class="nav-link active" href="#home">HOME <span class="sr-only">(current)</span></a> </li>
                                 <li class="nav-item"> <a class="nav-link" href="#features">FEATURES</a> </li>
                                 <li class="nav-item"> <a class="nav-link" href="#gallery">GALLERY</a> </li>
-                                <li class="nav-item"> <a class="nav-link" href="#pricing">PRICING</a> </li>
+                                <!--li class="nav-item"> <a class="nav-link" href="#pricing">PRICING</a> </li-->
                                 <li class="nav-item"> <a class="nav-link" href="#contact">CONTACT</a> </li>
-                                <li class="nav-item"><a href="#" class="btn btn-outline-light my-3 my-sm-0 ml-lg-3">Download</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{url('/admin')}}">Admin/Vendor Login</a></li>
+                                <li class="nav-item"><a target="blank" href="https://play.google.com/store/apps/details?id=com.otemainc.foodfuzzapp" class="btn btn-outline-light my-3 my-sm-0 ml-lg-3">Download</a></li>
                             </ul>
                         </div>
                     </nav>
@@ -308,7 +309,7 @@ URI     : https://otemainc.com
         </div>
     </div>
     <!-- // end .section -->
-    <div class="section" id="pricing">
+    <!--div class="section" id="pricing">
         <div class="container">
             <div class="section-title">
                 <small>PRICING</small>
@@ -365,8 +366,8 @@ URI     : https://otemainc.com
                 </div>
             </div>
             <!-- // end .pricing -->
-        </div>
-    </div>
+        <!--/div>
+    </div-->
     <!-- // end .section -->
     <div class="section pt-0">
         <div class="container">
@@ -399,7 +400,7 @@ URI     : https://otemainc.com
                 <p class="tagline">Available for all major mobile and desktop platforms. Rapidiously visualize optimal ROI rather than enterprise-wide methods of empowerment. </p>
                 <div class="my-4">
                     <a href="#" class="btn btn-light"><img src="{{asset('front_end/images/appleicon.png')}}" alt="icon"> App Store</a>
-                    <a href="#" class="btn btn-light"><img src="{{asset('front_end/images/playicon.png')}}" alt="icon"> Google play</a>
+                    <a href="https://play.google.com/store/apps/details?id=com.otemainc.foodfuzzapp" target="blank" class="btn btn-light"><img src="{{asset('front_end/images/playicon.png')}}" alt="icon"> Google play</a>
                 </div>
                 <p class="text-primary"><small><i>*Works on iOS 10.0.5+, Android Kitkat and above. </i></small></p>
             </div>
