@@ -62,7 +62,7 @@
                                     <td class="text-center">KSH {{ $meal->cost }} /=</td>
                                     <td><button data-toggle="modal" data-target="#mealModal{{ $meal->id }}" class="btn btn-success btn-sm">View <i class="icon icon-eye-open"></i></button> | 
                                         <a href="{{url('vendor/product/edit/'.$meal->id)}}" class="btn btn-warning btn-sm">Edit <i class="icon icon-edit"></i></a> | 
-                                        <a rel="{{$meal->id}}" rel1="delete" href="javascript:" class="btn btn-danger btn-sm deleteMeal">Delete <i class="icon icon-trash"></i></a></td>
+                                        <a rel="{{$meal->id}}" rel1="delete" href="javascript:" class="btn btn-danger btn-sm deleteProduct">Delete <i class="icon icon-trash"></i></a></td>
                                 </tr>
                             <div class="modal fade" id="mealModal{{ $meal->id }}">
                                 <div class="modal-dialog">

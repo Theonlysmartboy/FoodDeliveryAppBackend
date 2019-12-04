@@ -97,14 +97,9 @@ class VendorController extends Controller {
                 } else {
                     $filename = $data['current_logo'];
                 }
-                if (!empty($data['product_desc'])) {
-                    $description = $data['product_desc'];
-                } else {
-                    $description = '_';
-                }
                 Restaurant::where(['id' => $id])->update(['r_name' => $data['r_name'], 'adress' => $data['r_address'],
                     'telephone' => $data['r_tel'], 'logo' => $filename, 'owner_id' => $data['r_owner']]);
-                return redirect('/admin/vendor')->with('flash_message_success', 'Product updated Successfully');
+                return redirect('/admin/vendor')->with('flash_message_success', 'Vendor details updated Successfully');
             }
             $restaurantDetails = Restaurant::where(['id' => $id])->first();
             //Categfories drop down start

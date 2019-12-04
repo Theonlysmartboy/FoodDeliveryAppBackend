@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class ClientController extends Controller {
 
-    public function index(Request $request) {
+    public function index() {
         if (Session::has('adminSession')) {
             
         } else {

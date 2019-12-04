@@ -14,6 +14,17 @@
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="#" class="nav-link">Contact</a>
                 </li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link" data-toggle="dropdown">Settings</a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-item">
+                            <a  class="nav-link" href="#">Profile</a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a class="nav-link" href="{{url('/logout')}}">Log out</a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
 
             <!-- SEARCH FORM -->
