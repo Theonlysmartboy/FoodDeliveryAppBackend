@@ -14,7 +14,15 @@ class ProductController extends Controller {
 
     public function mealindex() {
         if (Session::has('vendorSession')) {
-            $meals = Product::get();
+            $meals = Product::where(['category_id' => 1])->get();
+            return view('vendor.products.index')->with(compact('meals',));
+        } else {
+            return redirect()->back()->with('flash_message_error', 'Access denied!!');
+        }
+    }
+    public function drinkindex() {
+        if (Session::has('vendorSession')) {
+            $meals = Product::where(['category_id' => 2])->get();
             return view('vendor.products.index')->with(compact('meals',));
         } else {
             return redirect()->back()->with('flash_message_error', 'Access denied!!');
