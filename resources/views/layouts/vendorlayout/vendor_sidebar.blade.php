@@ -51,7 +51,7 @@
                 </li>
                 <li class="nav-header">SALES</li>
                 <li class="nav-item">
-                    <a href="{{url('vendor/orders')}" class="nav-link">
+                    <a href="{{url('vendor/orders')}}" class="nav-link">
                         <i class="nav-icon fas fa-file"></i>
                         <p>Orders</p>
                     </a>

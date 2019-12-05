@@ -17,7 +17,7 @@ class ProductController extends Controller {
             $current_restaurant = Restaurant::where(['owner_id' => Auth::user()->id])->first();
                 $restaurant_id = $current_restaurant->id;
             $meals = Product::where(['category_id' => 1])->where(['restaurant_id' => $restaurant_id])->get();
-            return view('vendor.products.index')->with(compact('meals',));
+            return view('vendor.products.index')->with(compact('meals'));
         } else {
             return redirect()->back()->with('flash_message_error', 'Access denied!!');
         }

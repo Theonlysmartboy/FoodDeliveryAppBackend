@@ -43,6 +43,12 @@ Route::get('/admin/zone', 'ZoneController@index');
 Route::match(['get', 'post'], '/admin/zone/create', 'ZoneController@create');
 Route::match(['get', 'post'], '/admin/zone/edit/{id}', 'ZoneController@update');
 Route::match(['get', 'post'], '/admin/zone/delete/{id}', 'ZoneController@delete');
+//Order routes
+Route::get('/vendor/orders', 'OrderController@indexall');
+Route::get('/vendor/orders/confirmed', 'OrderController@indexconfirmed');
+Route::get('/vendor/orders/delivered', 'OrderController@indexdelivered');
+Route::get('/vendor/orders/new', 'OrderController@indexnew');
+
 
 Auth::routes();
 
