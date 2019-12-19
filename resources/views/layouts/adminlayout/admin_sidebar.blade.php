@@ -68,7 +68,7 @@
                     <a href="pages/gallery.html" class="nav-link">
                         <i class="nav-icon far fa-image"></i>
                         <p>
-                            Gallery
+                            ORDERS
                         </p>
                     </a>
                 </li>
@@ -76,26 +76,26 @@
                 <li class="nav-item">
                     <a href="https://adminlte.io/docs/3.0" class="nav-link">
                         <i class="nav-icon fas fa-file"></i>
-                        <p>Documentation</p>
+                        <p></p>
                     </a>
                 </li>
-                <li class="nav-header">LABELS</li>
+                <li class="nav-header"></li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon far fa-circle text-danger"></i>
-                        <p class="text">Important</p>
+                        <p class="text"></p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon far fa-circle text-warning"></i>
-                        <p>Warning</p>
+                        <p></p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon far fa-circle text-info"></i>
-                        <p>Informational</p>
+                        <p></p>
                     </a>
                 </li>
             </ul>
