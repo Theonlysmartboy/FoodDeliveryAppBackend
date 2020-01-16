@@ -37,8 +37,11 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title"><a href="{{ url('vendor/orders/new') }}" class="btn btn-success btn-sm">New Orders</a></h3>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h3 class="card-title"><a href="{{ url('vendor/orders/confirmed') }}" class="btn btn-primary btn-sm">Confirmed Orders</a></h3>
+                        <h3 class="card-title"><a href="{{ url('vendor/orders/new') }}" class="btn btn-primary btn-sm">New Orders</a>|</h3>
+                        <h3 class="card-title"><a href="{{ url('vendor/orders/confirmed') }}" class="btn btn-warning btn-sm">Confirmed Orders</a>|</h3>
+                        <h3 class="card-title"><a href="{{ url('vendor/orders/dispatched') }}" class="btn btn-info btn-sm">Dispatched Orders</a>|</h3>
+                        <h3 class="card-title"><a href="{{ url('vendor/orders/delivered') }}" class="btn btn-success btn-sm">Delivered Orders</a>|</h3>
+                        <h3 class="card-title"><a href="{{ url('vendor/orders/canceled') }}" class="btn btn-danger btn-sm">Cancelled Orders</a></h3>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
@@ -63,9 +66,11 @@
                                     <td class="text-center">{{$order->telephone}}</td>
                                     <td class="text-center">KSH {{ $order->amount }} /=</td>
                                     <td class="text-center">{{$order->longitude}} {{$order->latitude}} {{$order->deliveryloc}} </td>
-                                    <td><button data-toggle="modal" data-target="#orderModal{{ $order->id }}" class="btn btn-success btn-sm">View <i class="icon icon-eye-open"></i></button> | 
-                                        <a href="{{url('vendor/product/edit/'.$order->id)}}" class="btn btn-warning btn-sm">Edit <i class="icon icon-edit"></i></a> | 
-                                        <a rel="{{$order->orderid}}" rel1="delete" href="javascript:" class="btn btn-danger btn-sm deleteProduct">Delete <i class="icon icon-trash"></i></a></td>
+                                    <td><button data-toggle="modal" data-target="#orderModal{{ $order->id }}" class="btn btn-primary btn-sm">View <i class="icon icon-eye-open"></i></button> | 
+                                        <a href="{{url('vendor/order/edit/confirm/'.$order->id)}}" class="btn btn-warning btn-sm">Confirm <i class="icon icon-edit"></i></a> | 
+                                        <a href="{{url('vendor/order/edit/dispatch/'.$order->id)}}" class="btn btn-info btn-sm">Dispatch <i class="icon icon-edit"></i></a> |
+                                        <a href="{{url('vendor/order/edit/deliver/'.$order->id)}}" class="btn btn-success btn-sm">Deliver <i class="icon icon-edit"></i></a> |
+                                        <a rel="{{$order->orderid}}" rel1="cancel" href="javascript:" class="btn btn-danger btn-sm CancelOrder">Cancel <i class="icon icon-trash"></i></a></td>
                                 </tr>
                             <div class="modal fade" id="orderModal{{ $order->id }}">
                                 <div class="modal-dialog">

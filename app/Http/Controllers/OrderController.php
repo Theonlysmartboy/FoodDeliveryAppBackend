@@ -42,7 +42,8 @@ class OrderController extends Controller {
                             ->join('clients', 'orders.client', 'clients.id')
                             ->join('products', 'orders.product', 'products.id')
                             ->select('orders.*', 'clients.name As client', 'products.name As product', 'clients.tel As telephone')
-                            ->where(['seller' => $restaurant_id], ['status' => '1'])->get();
+                            ->where(['seller' => $restaurant_id])
+                            ->where(['status' => '1'])->get();
             return view('vendor.orders.index')->with(compact('orders'));
         } elseif (Session::has('adminSession')) {
             $orders = DB::table('orders')
@@ -65,7 +66,8 @@ class OrderController extends Controller {
                             ->join('clients', 'orders.client', 'clients.id')
                             ->join('products', 'orders.product', 'products.id')
                             ->select('orders.*', 'clients.name As client', 'products.name As product', 'clients.tel As telephone')
-                            ->where(['seller' => $restaurant_id], ['status' => '2'])->get();
+                            ->where(['seller' => $restaurant_id])
+                            ->where(['status' => '2'])->get();
             return view('vendor.orders.index')->with(compact('orders'));
         } elseif (Session::has('adminSession')) {
             $orders = DB::table('orders')
@@ -88,7 +90,8 @@ class OrderController extends Controller {
                             ->join('clients', 'orders.client', 'clients.id')
                             ->join('products', 'orders.product', 'products.id')
                             ->select('orders.*', 'clients.name As client', 'products.name As product', 'clients.tel As telephone')
-                            ->where(['seller' => $restaurant_id], ['status' => '0'])->get();
+                            ->where(['seller' => $restaurant_id])
+                            ->where(['status' => '0'])->get();
             return view('vendor.orders.index')->with(compact('orders'));
         } elseif (Session::has('adminSession')) {
             $orders = DB::table('orders')
@@ -111,7 +114,8 @@ class OrderController extends Controller {
                             ->join('clients', 'orders.client', 'clients.id')
                             ->join('products', 'orders.product', 'products.id')
                             ->select('orders.*', 'clients.name As client', 'products.name As product', 'clients.tel As telephone')
-                            ->where(['seller' => $restaurant_id], ['status' => '4'])->get();
+                            ->where(['seller' => $restaurant_id])
+                            ->where(['status' => '4'])->get();
             return view('vendor.orders.index')->with(compact('orders'));
         } elseif (Session::has('adminSession')) {
             $orders = DB::table('orders')
@@ -134,7 +138,8 @@ class OrderController extends Controller {
                             ->join('clients', 'orders.client', 'clients.id')
                             ->join('products', 'orders.product', 'products.id')
                             ->select('orders.*', 'clients.name As client', 'products.name As product', 'clients.tel As telephone')
-                            ->where(['seller' => $restaurant_id], ['status' => '3'])->get();
+                            ->where(['seller' => $restaurant_id])
+                            ->where(['status' => '3'])->get();
             return view('vendor.orders.index')->with(compact('orders'));
         } elseif (Session::has('adminSession')) {
             $orders = DB::table('orders')

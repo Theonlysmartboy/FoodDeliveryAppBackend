@@ -48,7 +48,7 @@ Route::get('/vendor/orders', 'OrderController@indexall');
 Route::get('/vendor/orders/confirmed', 'OrderController@indexconfirmed');
 Route::get('/vendor/orders/delivered', 'OrderController@indexdelivered');
 Route::get('/vendor/orders/new', 'OrderController@indexnew');
-Route::get('/vendor/orders/cancelled', 'OrderController@indexcancelled');
+Route::get('/vendor/orders/canceled', 'OrderController@indexcancelled');
 Route::get('/vendor/orders/dispatched', 'OrderController@indexdispatched');
 Route::get('/admin/orders', 'OrderController@indexall');
 Route::get('/admin/orders/new', 'OrderController@indexnew');
