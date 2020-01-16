@@ -15,7 +15,7 @@ class ProductController extends Controller {
     public function mealindex() {
         if (Session::has('vendorSession')) {
             $current_restaurant = Restaurant::where(['owner_id' => Auth::user()->id])->first();
-                $restaurant_id = $current_restaurant->id;
+            $restaurant_id = $current_restaurant->id;
             $meals = Product::where(['category_id' => 1])->where(['restaurant_id' => $restaurant_id])->get();
             return view('vendor.products.index')->with(compact('meals'));
         } else {
@@ -26,7 +26,7 @@ class ProductController extends Controller {
     public function drinkindex() {
         if (Session::has('vendorSession')) {
             $current_restaurant = Restaurant::where(['owner_id' => Auth::user()->id])->first();
-                $restaurant_id = $current_restaurant->id;
+            $restaurant_id = $current_restaurant->id;
             $meals = Product::where(['category_id' => 2])->where(['restaurant_id' => $restaurant_id])->get();
             return view('vendor.products.index')->with(compact('meals',));
         } else {
@@ -51,8 +51,10 @@ class ProductController extends Controller {
                             $extension = $image_temp->getClientOriginalExtension();
                             $filename = mt_rand(000, 9999999999) . '.' . $extension;
                             $filepath = 'uploads/product/' . $filename;
+                            $webimagefilepath = 'uploads/product/webimages/' . $filename;
                             //upload the image
-                            Image::make($image_temp)->resize(100, 100)->save($filepath);
+                            Image::make($image_temp)->resize(600, 400)->save($filepath);
+                            Image::make($image_temp)->resize(150, 150)->save($webimagefilepath);
                             $product->image = $filename;
                         }
                     }
@@ -89,14 +91,21 @@ class ProductController extends Controller {
                         $extension = $image_temp->getClientOriginalExtension();
                         $filename = rand(000, 9999999999) . '.' . $extension;
                         $image_path = 'uploads/product/' . $filename;
-                        //Resize images
-                        Image::make($image_temp)->resize(150, 150)->save($image_path);
+                        $web_image_path = 'uploads/product/webimage/' . $filename;
+                        //Resize and upload images
+                        Image::make($image_temp)->resize(600, 400)->save($image_path);
+                        Image::make($image_temp)->resize(150, 150)->save($web_image_path);
                         $product = Product::where(['id' => $id])->first();
                         //Get product image paths
                         $image_path = 'uploads/product/';
+                        $web_image_path = 'uploads/product/webimage';
                         //Delete the image if exists
                         if (file_exists($image_path . $product->image)) {
                             unlink($image_path . $product->image);
+                        }
+                        //delete the webimage too
+                        if (file_exists($web_image_path . $product->image)) {
+                            unlink($web_image_path . $product->image);
                         }
                     }
                 } else {
@@ -125,6 +134,7 @@ class ProductController extends Controller {
             return redirect()->back()->with('flash_message_error', 'Access denied!!');
         }
     }
+
     public function delete($id = null) {
         if (Session::has('vendorSession')) {
             if (!empty($id)) {
@@ -132,9 +142,14 @@ class ProductController extends Controller {
                 $product = Product::where(['id' => $id])->first();
                 //Get logo path
                 $image_path = 'uploads/product/';
+                $web_image_path = 'uploads/product/webimage';
                 //Delete the image if it exists
                 if (file_exists($image_path . $product->image)) {
                     unlink($image_path . $product->image);
+                }
+                //delete the webimage too
+                if (file_exists($web_image_path . $product->image)) {
+                    unlink($web_image_path . $product->image);
                 }
                 Product::where(['id' => $id])->delete();
                 return redirect()->back()->with('flash_message_success', 'Product Deleted Successfully');

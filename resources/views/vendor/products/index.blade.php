@@ -58,7 +58,7 @@
                                     <td class="text-center">{{ $meal->id }}</td>
                                     <td class="text-center">{{$meal->name}}</td>
                                     <td class="text-center">{{ $meal->descr }}</td>
-                                    <td class="text-center"><img src="{{asset('uploads/product/'.$meal->image)}}"/></td>
+                                    <td class="text-center"><img src="{{asset('uploads/product/webimage/'.$meal->image)}}"/></td>
                                     <td class="text-center">KSH {{ $meal->cost }} /=</td>
                                     <td><button data-toggle="modal" data-target="#mealModal{{ $meal->id }}" class="btn btn-success btn-sm">View <i class="icon icon-eye-open"></i></button> | 
                                         <a href="{{url('vendor/product/edit/'.$meal->id)}}" class="btn btn-warning btn-sm">Edit <i class="icon icon-edit"></i></a> | 
@@ -74,7 +74,7 @@
                                         </div>
                                         <div class="modal-body">
                                             <p class="text-center">Description: {{ $meal->descr }}</p>
-                                            <img src="{{asset('uploads/product/'.$meal->image)}}">
+                                            <img src="{{asset('uploads/product/webimage/'.$meal->image)}}">
                                             <p class="text-center">Cost: {{$meal->cost}}</p>
                                             <p class="text-center">Uploaded on: {{$meal->created_at}}</p>
                                             <p class="text-center">Updated on: {{$meal->updated_at}}</p>
