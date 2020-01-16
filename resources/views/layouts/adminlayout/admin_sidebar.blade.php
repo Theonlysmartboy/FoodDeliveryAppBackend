@@ -68,34 +68,33 @@
                     <a href="pages/gallery.html" class="nav-link">
                         <i class="nav-icon far fa-image"></i>
                         <p>
-                            ORDERS
+                            
                         </p>
                     </a>
-                </li>
-                <li class="nav-header">MISCELLANEOUS</li>
+                </li>                         
+                <li class="nav-header">ORDERS</li>
                 <li class="nav-item">
-                    <a href="https://adminlte.io/docs/3.0" class="nav-link">
+                    <a href="{{url('admin/orders/new')}}" class="nav-link">
                         <i class="nav-icon fas fa-file"></i>
-                        <p></p>
+                        <p>New Orders</p>
                     </a>
                 </li>
-                <li class="nav-header"></li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="{{url('admin/orders/canceled')}}" class="nav-link">
                         <i class="nav-icon far fa-circle text-danger"></i>
-                        <p class="text"></p>
+                        <p class="text">Bounced Orders</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="{{url('admin/orders/confirmed')}}" class="nav-link">
                         <i class="nav-icon far fa-circle text-warning"></i>
-                        <p></p>
+                        <p>Confirmed Orders</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="{{url('admin/orders/delivered')}}" class="nav-link">
                         <i class="nav-icon far fa-circle text-info"></i>
-                        <p></p>
+                        <p>Delivered Orders</p>
                     </a>
                 </li>
             </ul>
