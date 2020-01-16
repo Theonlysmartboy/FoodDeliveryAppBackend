@@ -1,4 +1,4 @@
-@extends('layouts.vendorlayout.vendor_design')
+@extends('layouts.adminlayout.admin_design')
 @section('content')
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -37,8 +37,6 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title"><a href="{{ url('vendor/orders/new') }}" class="btn btn-success btn-sm">New Orders</a></h3>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h3 class="card-title"><a href="{{ url('vendor/orders/confirmed') }}" class="btn btn-primary btn-sm">Confirmed Orders</a></h3>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
@@ -47,11 +45,13 @@
                                 <tr>
                                     <th>ORDER ID</th>
                                     <th>CLIENT</th>
-                                    <th>PRODUCT</th>
                                     <th>TELEPHONE</th>
+                                    <th>SELLER</th>
+                                    <th>PRODUCT</th>
+                                    <th>QUANTITY</th>
                                     <th>AMOUNT</th>
                                     <th>DELIVERY LOCATION</th>
-                                    <th>Action</th>
+                                    <th>ACTION</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -59,27 +59,32 @@
                                 <tr>
                                     <td class="text-center">{{ $order->orderid }}</td>
                                     <td class="text-center">{{$order->client}}</td>
-                                    <td class="text-center">{{ $order->product }}</td>
                                     <td class="text-center">{{$order->telephone}}</td>
+                                    <td class="text-center">{{$order->seller}}</td>
+                                    <td class="text-center">{{ $order->product }}</td>
+                                    <td class="text-center">{{$order->quantity}}</td>
                                     <td class="text-center">KSH {{ $order->amount }} /=</td>
                                     <td class="text-center">{{$order->longitude}} {{$order->latitude}} {{$order->deliveryloc}} </td>
-                                    <td><button data-toggle="modal" data-target="#orderModal{{ $order->id }}" class="btn btn-success btn-sm">View <i class="icon icon-eye-open"></i></button> | 
-                                        <a href="{{url('vendor/product/edit/'.$order->id)}}" class="btn btn-warning btn-sm">Edit <i class="icon icon-edit"></i></a> | 
-                                        <a rel="{{$order->orderid}}" rel1="delete" href="javascript:" class="btn btn-danger btn-sm deleteProduct">Delete <i class="icon icon-trash"></i></a></td>
+                                    <td><button data-toggle="modal" data-target="#orderModal{{ $order->id }}" class="btn btn-success btn-sm">View <i class="icon icon-eye-open"></i></button></td>
                                 </tr>
                             <div class="modal fade" id="orderModal{{ $order->id }}">
                                 <div class="modal-dialog">
                                     <div class="modal-content bg-primary">
                                         <div class="modal-header">
-                                            <h4 class="modal-title">Name: {{ $order->client }}</h4>
+                                            <h4 class="modal-title">Order ID: {{ $order->orderid }}</h4>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span></button>
                                         </div>
                                         <div class="modal-body">
-                                            <p class="text-center">Description: {{ $order->product }}</p>
-                                            <p class="text-center">Cost: {{$order->amount}}</p>
-                                            <p class="text-center">Uploaded on: {{$order->created_at}}</p>
-                                            <p class="text-center">Updated on: {{$order->updated_at}}</p>
+                                            <p class="text-center">CLIENT NAME: {{$order->client}}</p>
+                                            <p class="text-center">CLIENT TELEPHONE: {{$order->telephone}}</p>
+                                            <p class="text-center">PRODUCT: {{ $order->product }}</p>
+                                            <p class="text-center">SOLD BY: {{$order->seller}}</p>
+                                            <p class="text-center">QUANTITY: {{$order->quantity}}</p>
+                                            <p class="text-center">COST: {{$order->amount}}</p>
+                                            <p class="text-center">DELIVERY LOCATION: {{$order->longitude}} {{$order->latitude}} {{$order->deliveryloc}}</p>
+                                            <p class="text-center">CREATED ON: {{$order->created_at}}</p>
+                                            <p class="text-center">UPDATED ON: {{$order->updated_at}}</p>
                                         </div>
                                         <div class="modal-footer justify-content-between">
                                             <button type="button" class="btn btn-outline-light" data-dismiss="modal">Close</button>
@@ -96,11 +101,13 @@
                                 <tr>
                                     <th>ORDER ID</th>
                                     <th>CLIENT</th>
-                                    <th>PRODUCT</th>
                                     <th>TELEPHONE</th>
+                                    <th>SELLER</th>
+                                    <th>PRODUCT</th>
+                                    <th>QUANTITY</th>
                                     <th>AMOUNT</th>
                                     <th>DELIVERY LOCATION</th>
-                                    <th>Action</th>
+                                    <th>ACTION</th>
                                 </tr>
                             </tfoot>
                         </table>
