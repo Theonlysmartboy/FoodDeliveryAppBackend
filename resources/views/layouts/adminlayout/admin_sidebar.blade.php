@@ -92,8 +92,14 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{url('admin/orders/delivered')}}" class="nav-link">
+                    <a href="{{url('admin/orders/dispatched')}}" class="nav-link">
                         <i class="nav-icon far fa-circle text-info"></i>
+                        <p>Dispatched Orders</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{url('admin/orders/delivered')}}" class="nav-link">
+                        <i class="nav-icon far fa-circle text-success"></i>
                         <p>Delivered Orders</p>
                     </a>
                 </li>
