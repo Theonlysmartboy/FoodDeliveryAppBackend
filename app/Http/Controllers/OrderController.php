@@ -21,7 +21,16 @@ class OrderController extends Controller
                     ->select('orders.*', 'clients.name As client', 'products.name As product', 'clients.tel As telephone')
                     ->where(['seller' => $restaurant_id])->get();
         return view('vendor.orders.index')->with(compact('orders'));
-       }
+       }elseif (Session::has('adminSession')) {
+            $orders = DB::table('orders')
+                    ->join('clients', 'orders.client', 'clients.id')
+                    ->join('products', 'orders.product', 'products.id')
+                    ->join('restaurants','orders.seller', 'restaurants.id')
+                    ->select('orders.*', 'restaurants.r_name As seller', 'clients.name As client', 'products.name As product', 'clients.tel As telephone')
+                    ->get();
+        return view('admin.orders.index')->with(compact('orders'));
+            
+        }
     }
     public function indexnew(){
         
