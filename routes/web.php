@@ -26,6 +26,7 @@ Route::match(['get', 'post'], '/admin/user/edit/{id}', 'UserController@update');
 Route::match(['get', 'post'], '/admin/user/delete/{id}', 'UserController@delete');
 
 //Product routes
+Route::get('/vendor/products','ProductController@index');
 Route::get('/vendor/meals', 'ProductController@mealindex');
 Route::get('/vendor/drinks', 'ProductController@drinkindex');
 Route::match(['get', 'post'], '/vendor/product/create', 'ProductController@create');
@@ -60,11 +61,6 @@ Route::get('/admin/orders/confirmed', 'OrderController@indexconfirmed');
 Route::get('/admin/orders/delivered', 'OrderController@indexdelivered');
 Route::get('/admin/orders/canceled', 'OrderController@indexcancelled');
 Route::get('/admin/orders/dispatched', 'OrderController@indexdispatched');
-
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
 
