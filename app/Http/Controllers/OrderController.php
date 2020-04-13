@@ -154,12 +154,64 @@ class OrderController extends Controller {
         }
     }
 
-    public function deliver() {
-        
+    public function confirm($id = null) {
+        if (Session::has('vendorSession') || Session::has('adminSession')) {
+            if (!empty($id)) {
+                //get the particular order form the db
+                $order = Order::find($id);
+                $order->status = 2;
+                $order->save();
+
+                return redirect()->back()->with('flash_message_success', 'Order successfully confirmed');
+            }
+        } else {
+            return redirect()->back()->with('flash_message_error', 'Access denied!!');
+        }
     }
 
-    public function delete() {
-        
+    public function releasefordelivery($id = null) {
+        if (Session::has('vendorSession') || Session::has('adminSession')) {
+            if (!empty($id)) {
+                //get the particular order form the db
+                $order = Order::find($id);
+                $order->status = 3;
+                $order->save();
+
+                return redirect()->back()->with('flash_message_success', 'Order successfully released');
+            }
+        } else {
+            return redirect()->back()->with('flash_message_error', 'Access denied!!');
+        }
+    }
+
+    public function deliver($id = null) {
+        if (Session::has('vendorSession') || Session::has('adminSession')) {
+            if (!empty($id)) {
+                //get the particular order form the db
+                $order = Order::find($id);
+                $order->status = 4;
+                $order->save();
+
+                return redirect()->back()->with('flash_message_success', 'Order successfully delivered');
+            }
+        } else {
+            return redirect()->back()->with('flash_message_error', 'Access denied!!');
+        }
+    }
+
+    public function cancel($id = null) {
+        if (Session::has('vendorSession') || Session::has('adminSession')) {
+            if (!empty($id)) {
+                //get the particular order form the db
+                $order = Order::find($id);
+                $order->status = 0;
+                $order->save();
+
+                return redirect()->back()->with('flash_message_success', 'Order successfully cancelled');
+            }
+        } else {
+            return redirect()->back()->with('flash_message_error', 'Access denied!!');
+        }
     }
 
 }
