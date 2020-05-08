@@ -34,7 +34,7 @@
                 <li class="nav-header">PRODUCTS</li>
                 <li class="nav-item">
                     <a href="{{url('vendor/meals')}}" class="nav-link">
-                        <i class="nav-icon far fa-calendar-alt"></i>
+                        <i class="nav-icon fas fa-drumstick-bite"></i>
                         <p>
                             Meals
                             <span class="badge badge-info right">2</span>
@@ -43,16 +43,48 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{url('vendor/drinks')}}" class="nav-link">
-                        <i class="nav-icon far fa-image"></i>
+                        <i class="nav-icon fas fa-mug-hot"></i>
                         <p>
-                            Drinks
+                            Soft Drinks
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{url('vendor/drinks')}}" class="nav-link">
+                        <i class="nav-icon fas fa-wine-bottle"></i>
+                        <p>
+                            Alcoholic Drinks
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{url('vendor/vegetables')}}" class="nav-link">
+                        <i class="nav-icon fas fa-leaf"></i>
+                        <p>
+                            Vegetables
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{url('vendor/fruits')}}" class="nav-link">
+                        <i class="nav-icon fas fa-apple-alt"></i>
+                        <p>
+                            Fruits
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{url('vendor/pastries')}}" class="nav-link">
+                        <i class="nav-icon fas fa-birthday-cake"></i>
+                        <p>
+                            Pastries
                         </p>
                     </a>
                 </li>
                 <li class="nav-header">SALES</li>
                 <li class="nav-item">
                     <a href="{{url('vendor/orders')}}" class="nav-link">
-                        <i class="nav-icon fas fa-file"></i>
+                        <i class="nav-icon fab fa-opencart"></i>
                         <p>Orders</p>
                     </a>
                 </li>
