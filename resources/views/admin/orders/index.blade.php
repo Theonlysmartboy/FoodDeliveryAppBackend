@@ -65,7 +65,23 @@
                                     <td class="text-center">{{$order->quantity}}</td>
                                     <td class="text-center">KSH {{ $order->amount }} /=</td>
                                     <td class="text-center">{{$order->longitude}} {{$order->latitude}} {{$order->deliveryloc}} </td>
-                                    <td><button data-toggle="modal" data-target="#orderModal{{ $order->id }}" class="btn btn-success btn-sm">View <i class="icon icon-eye-open"></i></button></td>
+                                    <td><button data-toggle="modal" data-target="#orderModal{{ $order->id }}" class="btn btn-primary btn-sm">View <i class="icon icon-eye-open"></i></button> |
+                                        @if($order->status==1)
+                                        <a href="{{url('vendor/order/edit/confirm/'.$order->id)}}" class="btn btn-warning btn-sm">Confirm <i class="icon icon-edit"></i></a> | 
+                                        <a href="{{url('vendor/order/edit/cancel/'.$order->id)}}" class="btn btn-danger btn-sm">Cancel <i class="icon icon-edit"></i></a> |
+                                        @elseif($order->status==2)
+                                        <a href="{{url('vendor/order/edit/dispatch/'.$order->id)}}" class="btn btn-info btn-sm">Dispatch <i class="icon icon-edit"></i></a> |
+                                        <a href="{{url('vendor/order/edit/cancel/'.$order->id)}}" class="btn btn-danger btn-sm">Cancel <i class="icon icon-edit"></i></a> |
+                                        @elseif($order->status==3)
+                                        <a href="{{url('vendor/order/edit/deliver/'.$order->id)}}" class="btn btn-success btn-sm">Deliver <i class="icon icon-edit"></i></a> |
+                                        <a href="{{url('vendor/order/edit/cancel/'.$order->id)}}" class="btn btn-danger btn-sm">Cancel <i class="icon icon-edit"></i></a> |
+                                        @elseif($order->status==4)
+                                        <a href="{{url('vendor/order/edit/delete/'.$order->id)}}" class="btn btn-danger btn-sm">Cancel <i class="icon icon-edit"></i></a> |
+                                        @else
+                                        <a href="{{url('vendor/order/edit/confirm/'.$order->id)}}" class="btn btn-warning btn-sm">Confirm <i class="icon icon-edit"></i></a> | 
+                                        <a href="{{url('vendor/order/edit/delete/'.$order->id)}}" class="btn btn-danger btn-sm">Delete <i class="icon icon-edit"></i></a> |
+                                        @endif
+                                    </td>
                                 </tr>
                             <div class="modal fade" id="orderModal{{ $order->id }}">
                                 <div class="modal-dialog">

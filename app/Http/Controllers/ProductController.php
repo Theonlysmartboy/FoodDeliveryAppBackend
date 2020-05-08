@@ -11,6 +11,16 @@ use App\Restaurant;
 use Auth;
 
 class ProductController extends Controller {
+    public function index() {
+        if (Session::has('vendorSession')) {
+            $current_restaurant = Restaurant::where(['owner_id' => Auth::user()->id])->first();
+            $restaurant_id = $current_restaurant->id;
+            $meals = Product::where(['restaurant_id' => $restaurant_id])->get();
+            return view('vendor.products.index')->with(compact('meals'));
+        } else {
+            return redirect()->back()->with('flash_message_error', 'Access denied!!');
+        }
+    }
 
     public function mealindex() {
         if (Session::has('vendorSession')) {

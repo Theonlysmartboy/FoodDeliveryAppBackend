@@ -29,6 +29,9 @@ Route::match(['get', 'post'], '/admin/user/delete/{id}', 'UserController@delete'
 Route::get('/vendor/products','ProductController@index');
 Route::get('/vendor/meals', 'ProductController@mealindex');
 Route::get('/vendor/drinks', 'ProductController@drinkindex');
+Route::get('/vendor/vegetables', 'ProductController@vegindex');
+Route::get('/vendor/fruits', 'ProductController@fruitindex');
+Route::get('/vendor/drinks', 'ProductController@drinkindex');
 Route::match(['get', 'post'], '/vendor/product/create', 'ProductController@create');
 Route::match(['get', 'post'], '/vendor/product/edit/{id}', 'ProductController@update');
 Route::match(['get', 'post'], '/vendor/product/delete/{id}', 'ProductController@delete');
